@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Eğitimde kullanılan Spring Boot REST API projesinin gerçek mimarisi ve çalışma notları.">
+  <title>00 · Proje Tanıtımı | Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button></div>
+    <nav class="side-nav" aria-label="Dokümanlar">
+      <ul>
+        <li><a href="index.html">Eğitim ana sayfası</a></li>
+        <li><a aria-current="page" href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+        <li><a href="01-owasp-top10.html">OWASP Top 10</a></li>
+        <li><a href="02-sql-injection.html">SQL Injection</a></li>
+        <li><a href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li>
+        <li><a href="04-xxe.html">XXE</a></li>
+        <li><a href="05-broken-authentication.html">Broken Authentication</a></li>
+        <li><a href="06-session-guvenligi.html">Session güvenliği</a></li>
+        <li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li>
+        <li><a href="08-authorization-bypass.html">Authorization Bypass</a></li>
+        <li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li>
+        <li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li>
+        <li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li>
+        <li><a href="12-buffer-overflow.html">Buffer Overflow</a></li>
+        <li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li>
+        <li><a href="14-csrf.html">CSRF</a></li>
+        <li><a href="15-web-mvc-security.html">Web MVC Security</a></li>
+        <li><a href="16-java-kriptografi.html">Java kriptografi</a></li>
+        <li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li>
+        <li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li>
+        <li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li>
+        <li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li>
+        <li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li>
+        <li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+        <li><a href="sinav-haritasi.html">Sınav haritası</a></li>
+        <li><a href="eksik-demolar.html">Eksik demolar</a></li>
+        <li><a href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <header class="page-header">
+        <p class="eyebrow">Aşama 2 · proje bağlamı</p>
+        <h1>Proje Tanıtımı</h1>
+        <p>Bu bölüm, konu sayfalarında kullanılacak proje kanıtlarını ve yerel demo sınırlarını özetler. Kod akışı Spring MVC controller’larından service/repository katmanına; ayrıca security/config ve bağımsız SAX parser örneğine ayrılır.</p>
+        <div class="meta-row">
+          <span class="meta-tag">Okuma süresi: 10 dk</span>
+          <span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span>
+        </div>
+      </header>
+
+      <nav class="toc" aria-label="Sayfa içindekiler">
+        <strong>Bu sayfada</strong>
+        <ul>
+          <li><a href="#stack">Sürüm ve bileşenler</a></li>
+          <li><a href="#mimari">Katman diyagramı</a></li>
+          <li><a href="#endpointler">Endpoint ve yetkiler</a></li>
+          <li><a href="#veri">Test kullanıcıları ve veri</a></li>
+          <li><a href="#calistir">Yerel çalıştırma</a></li>
+          <li><a href="#uyarilar">Demo ortamı uyarıları</a></li>
+        </ul>
+      </nav>
+
+      <section id="stack" aria-labelledby="stack-title">
+        <h2 id="stack-title">Sürüm ve bileşenler</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Alan</th><th>Projede görülen</th><th>Kaynak</th></tr></thead>
+            <tbody>
+              <tr><td>Platform</td><td>Spring Boot 4.1.0, Java 17</td><td><a href="../pom.xml">pom.xml</a>, parent ve properties</td></tr>
+              <tr><td>Web / güvenlik</td><td>Spring Web MVC, Spring Security, Servlet Filter, CORS</td><td><a href="../pom.xml">pom.xml</a>; <a href="../src/main/java/com/works/config/SecurityConfig.java">SecurityConfig</a>, <a href="../src/main/java/com/works/config/FilterConfig.java">FilterConfig</a>, <a href="../src/main/java/com/works/config/CorsConfig.java">CorsConfig</a></td></tr>
+              <tr><td>Veri</td><td>Spring Data JPA, H2 (file database)</td><td><a href="../pom.xml">pom.xml</a>; <a href="../src/main/resources/application.properties">application.properties</a></td></tr>
+              <tr><td>Validation / diğer</td><td>Jakarta Validation, ModelMapper, Resilience4j RateLimiter, Jsoup, BCrypt</td><td><a href="../pom.xml">pom.xml</a>; <a href="../src/main/java/com/works/config/AppBeans.java">AppBeans</a></td></tr>
+              <tr><td>Görünmeyen entegrasyonlar</td><td>JWT, LDAP, Multipart upload ve Actuator sınıf/bağımlılığı envanterde yok</td><td>POM ve uygulama kaynak taraması</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="mimari" aria-labelledby="mimari-title">
+        <h2 id="mimari-title">Katman diyagramı</h2>
+        <figure class="diagram">
+          <svg viewBox="0 0 960 240" role="img" aria-labelledby="diagram-title diagram-desc">
+            <title id="diagram-title">Spring Boot eğitim projesi katmanları</title>
+            <desc id="diagram-desc">HTTP isteği config ve security katmanlarından controller, service, repository üzerinden H2 veritabanına ilerler. Ayrı bir SAX XML demo akışı vardır.</desc>
+            <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path></marker></defs>
+            <rect class="node" x="15" y="55" width="115" height="58" rx="10"></rect><text x="72" y="90" text-anchor="middle">HTTP</text>
+            <line class="edge" x1="130" y1="84" x2="165" y2="84"></line>
+            <rect class="node" x="165" y="55" width="165" height="58" rx="10"></rect><text x="247" y="80" text-anchor="middle">Config / Filters</text><text x="247" y="100" text-anchor="middle">Security · CORS · Rate</text>
+            <line class="edge" x1="330" y1="84" x2="365" y2="84"></line>
+            <rect class="node" x="365" y="55" width="130" height="58" rx="10"></rect><text x="430" y="90" text-anchor="middle">Controller</text>
+            <line class="edge" x1="495" y1="84" x2="530" y2="84"></line>
+            <rect class="node" x="530" y="55" width="115" height="58" rx="10"></rect><text x="587" y="90" text-anchor="middle">Service</text>
+            <line class="edge" x1="645" y1="84" x2="680" y2="84"></line>
+            <rect class="node" x="680" y="55" width="135" height="58" rx="10"></rect><text x="747" y="90" text-anchor="middle">Repository</text>
+            <line class="edge" x1="815" y1="84" x2="850" y2="84"></line>
+            <rect class="node" x="850" y="55" width="95" height="58" rx="10"></rect><text x="897" y="90" text-anchor="middle">H2</text>
+            <rect class="node" x="365" y="155" width="280" height="55" rx="10"></rect><text x="505" y="179" text-anchor="middle">Bağımsız örnek: xxe.MainXml</text><text x="505" y="198" text-anchor="middle">SAXParser → staff.xml (REST endpoint değil)</text>
+          </svg>
+          <figcaption>Şema kavramsal katman akışıdır. Servlet Filter ve Security filter chain'in çalışma sırası/registration ayrıntısı uygulama ortamında ayrıca doğrulanmalıdır.</figcaption>
+        </figure>
+        <p>Controller’lar API yüzeyini; service sınıfları iş akışını; repository arayüzleri JPA erişimini temsil eder. `xxe.MainXml`, uygulamanın REST endpoint’lerinden bağımsız bir `main` programıdır.</p>
+      </section>
+
+      <section id="endpointler" aria-labelledby="endpoint-title">
+        <h2 id="endpoint-title">REST endpoint listesi</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>HTTP</th><th>Yol</th><th>Sınıf.metot</th><th>Beyan edilen yetki</th></tr></thead>
+            <tbody>
+              <tr><td>POST</td><td><code>/customer/register</code></td><td>CustomerController.register</td><td>Public (`/customer/**` permitAll)</td></tr>
+              <tr><td>POST</td><td><code>/customer/login</code></td><td>CustomerController.login</td><td>Public (`/customer/**` permitAll)</td></tr>
+              <tr><td>POST</td><td><code>/product/save</code></td><td>ProductController.save</td><td>`hasRole("product")`</td></tr>
+              <tr><td>GET</td><td><code>/product/list</code></td><td>ProductController.list</td><td>`hasRole("product")`</td></tr>
+              <tr><td>POST</td><td><code>/note/save</code></td><td>NoteController.save</td><td>`hasRole("note")`</td></tr>
+              <tr><td>GET</td><td><code>/note/list</code></td><td>NoteController.list</td><td>`hasRole("note")`</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Yetki kuralları [SecurityConfig.java](../src/main/java/com/works/config/SecurityConfig.java), endpoint mapping’leri [CustomerController.java](../src/main/java/com/works/controller/CustomerController.java), [ProductController.java](../src/main/java/com/works/controller/ProductController.java) ve [NoteController.java](../src/main/java/com/works/controller/NoteController.java) içindedir.</p>
+      </section>
+
+      <section id="veri" aria-labelledby="veri-title">
+        <h2 id="veri-title">Test kullanıcıları ve veri</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Kaynakta yorum olarak belirtilen örnek</th><th>Rol açıklaması</th><th>Not</th></tr></thead>
+            <tbody>
+              <tr><td><code>ali@mail.com</code></td><td>product</td><td>Yorumda listelenmiş; parola veya seed kaydı yok.</td></tr>
+              <tr><td><code>veli@mail.com</code></td><td>note</td><td>Yorumda listelenmiş; parola veya seed kaydı yok.</td></tr>
+              <tr><td><code>zehra@mail.com</code></td><td>product, note</td><td>Yorumda listelenmiş; parola veya seed kaydı yok.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="warning ipucu">
+          <strong>İpucu</strong>
+          Bu eşlemeler yalnızca [SecurityConfig.java](../src/main/java/com/works/config/SecurityConfig.java) içindeki yorum satırlarında bulunuyor. Kaynaklarda kullanıcı oluşturma/seed mekanizması veya demo parolası görülmedi; DB'de hesapların hazır olduğunu varsaymayın.
+        </aside>
+      </section>
+
+      <section id="calistir" aria-labelledby="calistir-title">
+        <h2 id="calistir-title">Yerel çalıştırma</h2>
+        <ol>
+          <li>Java 17 ve Maven gerekli. Projenin dosya tabanlı H2 veritabanı kullanıcı home dizininde tutulur.</li>
+          <li>Kaynakta <code>spring.datasource.password</code> anahtarı görünür değil; <a href="../src/main/java/com/works/service/DBService.java">DBService</a> bu özelliği zorunlu okuyor. Demo ortamınıza uygun değeri yalnızca yerel ortam değişkeni/secret ile verin; repoya eklemeyin.</li>
+          <li>Wrapper betiği mevcut olsa da bu checkout'ta `.mvn/wrapper` destek dosyaları yok. Wrapper dosyaları tamamlanırsa çalıştırma komutu aşağıdaki gibidir. Yerel Maven kuruluysa alternatif komutu kullanın.</li>
+        </ol>
+        <pre><code>SPRING_DATASOURCE_PASSWORD='&lt;yerel-demo-veritabani-parolasi&gt;' ./mvnw spring-boot:run
+# Alternatif: Maven kuruluysa
+SPRING_DATASOURCE_PASSWORD='&lt;yerel-demo-veritabani-parolasi&gt;' mvn spring-boot:run</code></pre>
+        <aside class="warning dikkat">
+          <strong>Dikkat</strong>
+          Yukarıdaki parantezli değer yer tutucudur. Uygulama `8090` portunu kullanır. `./mvnw` betiği tek başına yeterli değildir: wrapper destek dosyaları eksik olduğu için mevcut checkout'ta wrapper'ın çalışacağı doğrulanmadı. `SPRING_DATASOURCE_PASSWORD` değerini mevcut yerel H2 dosyanızla uyumlu seçin; veritabanı dosyasını veya gerçek parolayı paylaşmayın.
+        </aside>
+      </section>
+
+      <section id="uyarilar" aria-labelledby="uyarilar-title">
+        <h2 id="uyarilar-title">Demo ortamı uyarıları</h2>
+        <ul>
+          <li>[application.properties](../src/main/resources/application.properties) içinde AES/HMAC anahtarları tanımlı; eğitim dışı kullanımda bunları secret management'a taşıyın. Dokümanda gerçek anahtar değerleri tekrarlanmaz.</li>
+          <li>CSRF kapalı, HTTPS/SSL ayarı yoktur. HTTP Basic kimlik bilgilerini yalnızca loopback/izole yerel laboratuvarda kullanın; ağa açık ortama taşımayın.</li>
+          <li>Kayıt DTO'su rol listesi kabul eder ve serviste entity'ye map edilir. Authorization demosunda yalnızca atılabilir bir eğitim veritabanı kullanın.</li>
+          <li>Rate limiter tüm isteklerce paylaşılan tek bean olarak yapılandırılmıştır; 5/dakika sınırı sınıfın kullanıcı bazlı brute-force koruması olduğu anlamına gelmez. Sınıfın tamamı limiti tüketebilir.</li>
+          <li>Log filtresi SessionId ve istemci metadata'sı logluyor. Dersi izole ortamda yapın; logları dağıtmayın ve hassas gerçek kullanıcı verisi kullanmayın.</li>
+          <li>H2 Console bağımlılığı bulunması console'un etkin olduğunu kanıtlamaz; kaynak properties'te etkinleştirme ayarı görünmüyor.</li>
+          <li>Repository'de kasıtlı açık/güvenli branch çifti yok. Kod örnekleri gerçek haliyle alıntılanacak; güvenli iyileştirme bulunmayan başlıklarda öneri açıkça “Önerilen Düzeltme” olarak ayrılacak.</li>
+        </ul>
+      </section>
+
+      <aside class="warning egitmen">
+        <strong>Eğitmen Notu</strong>
+        Rol denemelerinde konfigürasyondaki `hasRole("product")` / `hasRole("note")` kontrolleri ile `CustomerService`'in DB rol adlarını authority'ye dönüştürme biçimini birlikte inceleyin. Gerçek kayıtların ve authority adlarının eşleştiği doğrulanmadan beklenen başarılı isteği garanti etmeyin.
+      </aside>
+
+      <nav class="pager" aria-label="Sayfa gezinme">
+        <a href="index.html">← Önceki: Eğitim ana sayfası</a>
+        <a href="01-owasp-top10.html">Sonraki: OWASP Top 10 →</a>
+      </nav>
+      <footer class="site-footer">Kaynak envanteri proje dosyaları üzerinden çıkarılmıştır. Bu tanıtım sayfası proje kaynak kodunu değiştirmez.</footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>

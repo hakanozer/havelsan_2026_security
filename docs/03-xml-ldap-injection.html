@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XML ve LDAP Injection nedenleri, proje kapsamı dışında kalan demo önerileri.">
+  <title>03 · XML / LDAP Injection | Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button></div>
+    <nav class="side-nav" aria-label="Dokümanlar"><ul>
+      <li><a href="index.html">Eğitim ana sayfası</a></li><li><a href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+      <li><a href="01-owasp-top10.html">OWASP Top 10</a></li><li><a href="02-sql-injection.html">SQL Injection</a></li>
+      <li><a aria-current="page" href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li><li><a href="04-xxe.html">XXE</a></li>
+      <li><a href="05-broken-authentication.html">Broken Authentication</a></li><li><a href="06-session-guvenligi.html">Session güvenliği</a></li>
+      <li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li><li><a href="08-authorization-bypass.html">Authorization Bypass</a></li>
+      <li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li><li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li>
+      <li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li><li><a href="12-buffer-overflow.html">Buffer Overflow</a></li>
+      <li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li><li><a href="14-csrf.html">CSRF</a></li>
+      <li><a href="15-web-mvc-security.html">Web MVC Security</a></li><li><a href="16-java-kriptografi.html">Java kriptografi</a></li>
+      <li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li><li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li>
+      <li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li><li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li>
+      <li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li><li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+      <li><a href="sinav-haritasi.html">Sınav haritası</a></li><li><a href="eksik-demolar.html">Eksik demolar</a></li><li><a href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+    </ul></nav>
+  </aside>
+  <main class="main"><div class="content">
+    <header class="page-header"><p class="eyebrow">Injection ailesi · XML/LDAP parser sınırları</p><h1>XML Injection ve LDAP Injection</h1>
+      <p>XML Injection, kullanıcı girdisinin XML metnine bağlamı korunmadan eklenip belgenin yapısını değiştirmesine; LDAP Injection ise girdinin LDAP filter sözdizimine karışmasına dayanır. İki parser'ın escaping/sözdizimi farklıdır. Projede XML tabanlı bir REST akışı veya LDAP istemcisi yok; ayrı XXE örneği bu başlıkların yerine geçmez.</p>
+      <div class="meta-row"><span class="meta-tag">Okuma süresi: 18 dk</span><span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span><span class="meta-tag">OWASP A03:2021 · CWE-91 (XML), CWE-90 (LDAP)</span></div>
+    </header>
+    <aside class="warning tehlike"><strong>Bu konu projede henüz yok</strong>Projede LDAP bağımlılığı, directory service, XML query veya XML oluşturan REST endpoint bulunmuyor. Aşağıda varmış gibi gösterilen proje sınıfı/endpoint yoktur; demo fikri açıkça öneri olarak ayrılmıştır.</aside>
+    <nav class="toc" aria-label="Sayfa içindekiler"><strong>İçindekiler</strong><ul><li><a href="#neden">Neden önemli?</a></li><li><a href="#saldiri">Saldırı zinciri</a></li><li><a href="#proje">Proje karşılığı</a></li><li><a href="#once">Güvenli sınır yaklaşımı</a></li><li><a href="#demo">Demo önerisi</a></li><li><a href="#kontrol">Kontrol listesi</a></li></ul></nav>
+    <section id="neden"><h2>Neden önemli?</h2><p>XML/LDAP injection'da uygulama, dış girdiyi yapılandırılmış bir dilin parçası olarak yorumlanacak yere taşır. Girdi bir alan değeri olmaktan çıkıp node, predicate veya filter koşuluna dönüşürse sonuç kümesi genişleyebilir, beklenmeyen veri görünür olabilir ya da iş kuralı atlanabilir. Kurumsal directory'de bu, kullanıcı/grup arama sonuçlarının bütünlüğünü ve gizliliğini etkileyebilir.</p><p>Önlem parser'a uygun parametreleme veya encoder kullanmaktır. Genel blacklist alternatifi güvenilir değildir: izin verilen karakterleri değil, bilinmeyen sözdizim varyantlarını yakalamaya çalışır.</p></section>
+    <section id="saldiri"><h2>Saldırı nasıl çalışır?</h2><h3>XML Injection</h3><ol><li>Uygulama kullanıcı metnini XML etiketleri arasında string birleştirerek yazar.</li><li>Girdi XML metacharacter/etiket sınırını değiştirir.</li><li>XML parser farklı bir element/attribute ağacı üretir; uygulama başka bir alanı veya kaydı işler.</li></ol><h3>LDAP Injection</h3><ol><li>Uygulama arama filtresini `(&(uid=...)(active=true))` gibi bir template ile string oluşturur.</li><li>Kontrol edilmeyen girdi LDAP filter gramerini etkiler.</li><li>Directory sunucusu daha geniş/başka bir filtre çalıştırır ve sonuçlar uygulamanın varsaydığından farklı olur.</li></ol><aside class="warning ipucu"><strong>İpucu</strong>XML Injection ile XXE aynı şey değildir. XXE, parser'ın external entity/DTD çözümlemesinin doğurduğu belirli bir XML parser riskidir; ayrı ders sayfası <a href="04-xxe.html">04 · XXE</a>.</aside></section>
+    <section id="proje"><h2>Projemizde nerede?</h2><p>LDAP bağlantısı, LDAP filter sorgusu, XML REST endpoint'i veya XML payload'ı kabul eden controller bulunmadı. En yakın gerçek kaynak ayrı komut satırı SAX örneği <a href="../src/main/java/xxe/MainXml.java">src/main/java/xxe/MainXml.java:6-29</a> ve fixture <a href="../src/main/resources/staff.xml">src/main/resources/staff.xml:1-16</a>; bu örnek XXE parser yapılandırması içindir ve LDAP/XML Injection endpoint'i değildir.</p><p>REST endpoint'leri [CustomerController.java](../src/main/java/com/works/controller/CustomerController.java), [ProductController.java](../src/main/java/com/works/controller/ProductController.java), [NoteController.java](../src/main/java/com/works/controller/NoteController.java) kapsamında JSON alır.</p></section>
+    <section id="once"><h2>ÖNCE / SONRA: projede karşılığı yok</h2><p><strong>ÖNCE (zayıf proje kodu):</strong> Bu iki zafiyete ait proje kodu yok; gerçek dosya yolu/metot uydurulamaz. Dolayısıyla zayıf kod alıntısı verilmemiştir.</p><p><strong>SONRA (güvenli ilke):</strong> XML için string concatenation yerine XML writer/binding API'nin text/attribute değerlerini ayrı yazma mekanizmasını kullanın. LDAP için filter değerlerini LDAP filter gramerine göre kaçışlayabilen, doğrulanmış bir kütüphaneyi kullanın; filtre template'ini kullanıcı girdisiyle birleştirmeyin. Gerçek sınıf/metot seçimi, kullanılacak LDAP/XML kütüphanesine göre doğrulanmalıdır.</p><aside class="warning dikkat"><strong>Dikkat</strong>XML verisini güvenli oluşturmak XXE'yi otomatik kapatmaz; parser konfigürasyonunda external entity/DTD davranışını ayrıca kısıtlayın. Bunun tersi de geçerli: XXE hardening, XML Injection'ı önlemez.</aside></section>
+    <section id="demo"><h2>Canlı demo adımları · Demo Önerisi</h2><div class="panel"><h3>Minimum ekleme önerisi (projeye eklenmedi)</h3><ul><li>Paket: <code>com.works.demo</code>.</li><li>Yeni demo sınıfı: <code>XmlInjectionDemoController</code>; yalnızca izole eğitim profilinde açılacak.</li><li>Önerilen endpoint: <code>POST /demo/xml/preview</code>; JSON alanını XML text içeriği olarak güvenli writer ile üretip parse sonucu gösterir.</li><li>LDAP için ayrı sınıf: <code>LdapInjectionDemoController</code>; endpoint: <code>GET /demo/ldap/search?q=...</code>. Gerçek LDAP yerine test directory/mock adapter kullanın. LDAP library ve API seçimi eğitmen tarafından doğrulanmalı.</li></ul><p>Önce güvenli parametre yolu gösterin; sonra yalnızca local test fixture'da ham string birleştirme yapan kasıtlı zayıf alternatif eklenirse bunu profile/branch ile izole edip testi bitince kaldırın. Buradaki isimler öneri, mevcut proje sınıfı/endpoint'i değildir.</p></div><ol><li>Proje kaynaklarına ekleme yapmadan önce bu demo için bağımlılık ve test veri seçimini belirleyin.</li><li>Güvenli endpoint'e özel karakter içeren basit bir test değeri gönderin; çıktı tek bir text alanı olarak kalmalı, element/filter yapısını değiştirmemelidir.</li><li>LDAP mock'ta güvenli filter builder ile arama sonucunun yalnızca eşleşen kaydı kapsadığını doğrulayın.</li><li>Demo sonunda yeni testi ve fixture'ı temizleyin; prod profiline eklemeyin.</li></ol><pre><code># ÖNERİLEN endpoint örneği; projede henüz yok:
+curl -i -X POST http://localhost:8090/demo/xml/preview \
+  -H 'Content-Type: application/json' \
+  -d '{"value":"ornek & metin"}'
+
+# ÖNERİLEN mock endpoint; projede henüz yok:
+curl -i --get --data-urlencode 'q=ali' \
+  http://localhost:8090/demo/ldap/search</code></pre></section>
+    <section id="katman"><h2>Önlem nerede durur?</h2><p>XML üretiminde serialization/escaping uygulama katmanında; XML parse ederken parser konfigürasyonu veri giriş sınırında; LDAP filter üretimi directory adapter/repository katmanında yer alır. Controller validation, izinli uzunluk ve iş formatını denetler ama parser'a uygun escaping'in yerini almaz. Birlikte kullanıldığında her dil sınırında doğru encoding gerekir.</p><aside class="warning cpp"><strong>C++ Karşılığı</strong><br>• C++ XML kütüphanesinde node/text API kullanın, XML'i ham concatenation ile üretmeyin.<br>• LDAP istemcisinde filter value escaping için seçilen kütüphanenin doğrulanmış helper'ını kullanın; API adı kütüphaneye göre teyit edilmeli.<br>• Girdiyi allowlist ve uzunluk sınırıyla doğrulayın; validation tek başına encoding değildir.<br>• C/C++ string buffer uzunluğu ve ömrünü sınırlandırın; `std::string` tercih edin.<br>• Kütüphane güvenlik ayarlarını (external entity/DTD) ayrıca yapılandırın.<br>• `clang-tidy`, `cppcheck`, sanitizer ve parser testleriyle doğrulayın.</aside></section>
+    <section id="kontrol"><h2>Sık yapılan hatalar ve kontrol listesi</h2><ul><li>XXE ile XML Injection'ı aynı zafiyet saymak.</li><li>XML'i string birleştirerek kurmak ve yalnızca `<`/`>` blacklist'i kullanmak.</li><li>LDAP filter değerini DN escape kuralıyla kaçışlamak; bağlamların farklı olduğunu unutmak.</li><li>Input allowlist'i uygulayıp parser escaping'i atlamak.</li><li>LDAP arama hesabına gereğinden fazla directory yetkisi vermek.</li><li>Üretim directory'sine eğitim payload'ı göndermek.</li><li>Öneri sınıf/endpoint'ini projede zaten varmış gibi dokümante etmek.</li></ul></section>
+    <section id="sorular"><h2>Mini sorular</h2><details><summary>1. XXE önlemi XML Injection'ı otomatik önler mi?</summary><p>Hayır. XXE parser'ın dış entity/DTD çözümlemesiyle; XML Injection ise girdinin XML yapısına karışmasıyla ilgilidir.</p></details><details><summary>2. LDAP filter için genel SQL escaping kullanmak doğru mudur?</summary><p>Hayır. LDAP filter ve SQL farklı gramerlerdir; LDAP bağlamına uygun escaping/parameterization gerekir.</p></details><details><summary>3. Bu projede LDAP injection'ı hangi endpoint'te gösterebiliriz?</summary><p>Mevcut endpoint yok. Demo önerisi `com.works.demo.LdapInjectionDemoController` ve `/demo/ldap/search`; mock directory ile eklenmelidir.</p></details></section>
+    <nav class="pager" aria-label="Sayfa gezinme"><a href="02-sql-injection.html">← Önceki: SQL Injection</a><a href="04-xxe.html">Sonraki: XXE →</a></nav>
+    <footer class="site-footer">Bu sayfa projede olmayan XML/LDAP örneklerini açıkça öneri olarak işaretler.</footer>
+  </div></main>
+</div>
+</body>
+</html>

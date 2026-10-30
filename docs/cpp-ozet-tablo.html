@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Güvenli yazılım konularının Java/Spring Boot ve modern C++ karşılıklarını gösteren yazdırılabilir özet.">
+  <title>Java/Spring ↔ C++ Güvenlik Özeti | Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button><button class="copy-button" type="button" data-print>Yazdır</button></div>
+    <nav class="side-nav" aria-label="Dokümanlar"><ul>
+      <li><a href="index.html">Eğitim ana sayfası</a></li><li><a href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+      <li><a href="01-owasp-top10.html">OWASP Top 10</a></li><li><a href="02-sql-injection.html">SQL Injection</a></li><li><a href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li><li><a href="04-xxe.html">XXE</a></li><li><a href="05-broken-authentication.html">Broken Authentication</a></li><li><a href="06-session-guvenligi.html">Session güvenliği</a></li><li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li><li><a href="08-authorization-bypass.html">Authorization Bypass</a></li><li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li><li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li><li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li><li><a href="12-buffer-overflow.html">Buffer Overflow</a></li><li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li><li><a href="14-csrf.html">CSRF</a></li><li><a href="15-web-mvc-security.html">Web MVC Security</a></li><li><a href="16-java-kriptografi.html">Java kriptografi</a></li><li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li><li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li><li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li><li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li><li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li><li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+      <li><a href="sinav-haritasi.html">Sınav haritası</a></li><li><a href="eksik-demolar.html">Eksik demo önerileri</a></li><li><a aria-current="page" href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+    </ul></nav>
+  </aside>
+  <main class="main"><div class="content">
+    <header class="page-header">
+      <p class="eyebrow">Yazdırılabilir başvuru · Java/Spring Boot ↔ modern C++</p>
+      <h1>Güvenli Yazılım: Java/Spring ve C++ Özet Tablosu</h1>
+      <p>Web kontrolleri framework ve credential modeline bağlıdır; native bellek kontrolleri C++'ta ayrıca önem kazanır. Bu tablo birebir API eşlemesi değil, aynı güvenlik ilkesinin her ekosistemde nerede uygulanacağını gösterir.</p>
+      <div class="meta-row"><span class="meta-tag">Okuma süresi: 10 dk</span><span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span><span class="meta-tag">Yazdırma: Ctrl/Cmd + P</span></div>
+    </header>
+    <aside class="warning ipucu"><strong>İpucu</strong>C++ web servisi varsa HTTP/auth/session kontrolleri Boost.Beast, Crow, Drogon veya benzeri kullanılan framework'ün doğrulanmış API'sinde uygulanır. Java anotasyonları veya Spring yapılandırması C++'a taşınmaz.</aside>
+    <nav class="toc" aria-label="Sayfa içindekiler"><strong>Bu sayfada</strong><ul><li><a href="#web">Web ve API güvenliği</a></li><li><a href="#native">Native, dosya ve bellek</a></li><li><a href="#test">Test ve analiz</a></li><li><a href="#ilke">Ortak tasarım ilkesi</a></li></ul></nav>
+    <section id="web"><h2>Web ve API güvenliği</h2>
+      <div class="table-wrap"><table><thead><tr><th>Konu</th><th>Java / Spring Boot karşılığı</th><th>Modern C++ karşılığı</th><th>Bu projedeki durum</th></tr></thead><tbody>
+        <tr><td>OWASP Top 10 / threat modeling</td><td>Katman bazlı kontrol: Spring Security, Bean Validation, prepared query, güvenli config; test ve review ile doğrula.</td><td>SEI CERT C++, C++ Core Guidelines veya uygun güvenlik standardı; threat model, static/dynamic test.</td><td>Konular farklı sayfalarda ele alınıyor; Top 10 bir sertifika/checklist değildir.</td></tr>
+        <tr><td>SQL Injection</td><td>Parameterized query/JPA binding; kullanıcı girdisini SQL yapısına birleştirme.</td><td>SQLite/libpq/ODBC prepared statement ve typed parameter binding; SQL metnini string birleştirmeyle üretme.</td><td>Login sorgusu parametreli; zayıf karşılaştırma demo önerisi.</td></tr>
+        <tr><td>XML / LDAP Injection ve XXE</td><td>Girdi sınırlarını doğrula; query API kullan; XML parser'da DTD/external entity erişimini kapat.</td><td>XML/LDAP kütüphanesinin güvenli parser/query API'si; external entity ve resolver erişimini kapat.</td><td>Güvenli SAX hardening var; LDAP ve injection örnekleri yok.</td></tr>
+        <tr><td>Authentication / brute force</td><td>Spring Security `AuthenticationManager`/provider; password encoder; rate limit, artan gecikme ve hesap politikası.</td><td>HTTP framework/provider veya merkezi IdP adaptörü; parola için onaylı KDF; rate limit ve audit.</td><td>HTTP Basic ve ortak limiter var; Digest/Windows/MFA/hesap bazlı koruma yok.</td></tr>
+        <tr><td>Session / cookie</td><td>Session ID rotation, idle timeout, `HttpOnly`, `Secure`, `SameSite`; token/ID loglama.</td><td>C++ HTTP framework'ünde güvenli cookie flags, opaque server-side session, rotation/expiry; secret redaction.</td><td>Filter session açıyor ve ID logluyor; cookie flag konfigürasyonu doğrulanmalı.</td></tr>
+        <tr><td>HTTPS / TLS</td><td>TLS'yi doğru deployment sınırında sonlandır; güvenilir proxy başlıkları, sertifika/key rotation ve secure cookie.</td><td>TLS kütüphanesi/framework config'i; sertifika doğrulaması, hostname check, key lifecycle ve güvenli proxy trust.</td><td>Uygulama TLS örneği yok; demo önerisi.</td></tr>
+        <tr><td>Authorization / IDOR / RBAC</td><td>URL ve method security; her nesne erişiminde ownership/tenant kontrolü; least privilege.</td><td>Her handler/service işleminde principal/resource ownership policy; merkezi policy helper ve deny-by-default.</td><td>Role koruması var; IDOR/BOLA zayıf örneği yok.</td></tr>
+        <tr><td>File upload / image</td><td>Boyut + allowlist + content signature, güvenli decode/re-encode, random filename, webroot dışı storage.</td><td>Stream-size limit, content validation, trusted parser/re-encode, controlled storage path and permissions.</td><td>Upload endpoint'i yok.</td></tr>
+        <tr><td>XSS / Output Encoding</td><td>HTML/attribute/JS/URL context'e uygun output encoding; template auto-escaping; CSP ek savunma.</td><td>C++ HTTP template/output encoder'ın context-aware API'si; raw string output'tan kaçın.</td><td>Request wrapper var; HTML response sink ve encoder örneği yok.</td></tr>
+        <tr><td>Validation / normalization / regex</td><td>Server-side Bean Validation + allowlist; canonical form üzerinde doğrula; uzunluk/time limit.</td><td>Typed parsing, allowlist, bounded input; `std::regex` performansını test et ve ReDoS'a karşı limit koy.</td><td>Bean Validation/CityValidator var; genel canonicalization/regex örneği yok.</td></tr>
+        <tr><td>CSRF</td><td>Cookie-authenticated browser için CSRF token; uygun SameSite ve Origin/Referer kontrolü; bearer-token stateless akışını ayır.</td><td>Cookie kullanan C++ web servisinde aynı HTTP anti-CSRF ilkeleri; framework middleware/token doğrulaması.</td><td>CSRF disabled; token/SameSite demo önerisi.</td></tr>
+        <tr><td>Servlet Filter / MVC pipeline</td><td>Spring Security `SecurityFilterChain`; gerekiyorsa `OncePerRequestFilter`; authorization service/domain kontrolünü de korur.</td><td>Framework middleware/filter chain; policy kontrolünü route + service katmanında uygula.</td><td>Generic Servlet Filter ve `SecurityFilterChain` var; `OncePerRequestFilter` yok.</td></tr>
+        <tr><td>JWT</td><td>Signature, algorithm allowlist, issuer, audience, expiry, key rotation; claim'den gelen yetkiyi doğrula.</td><td>Doğrulanmış JWT kütüphanesi; aynı claim/algorithm/key kontrolleri; token'ı loglama veya URL'ye koyma.</td><td>JWT implementasyonu yok.</td></tr>
+        <tr><td>REST DTO / mass assignment</td><td>Input DTO allowlist, output DTO, explicit mapping, consistent status/error, rate limit ve audit.</td><td>Explicit request/response struct mapping, bounded body parsing, authorization and rate policy.</td><td>REST katmanı var; DTO/use-case coverage akış bazında doğrulanmalı.</td></tr>
+        <tr><td>Configuration / secrets / crypto</td><td>Environment/secret store; BCrypt/Argon2 password KDF; AES-GCM; `SecureRandom`; key lifecycle.</td><td>OpenSSL/libsodium gibi onaylı kütüphane; OS/managed secret store; password KDF ve AEAD; kendi crypto algoritmanı yazma.</td><td>CryptoService AES-GCM/HMAC/SecureRandom içeriyor; secret management entegrasyonu ayrı değerlendirilir.</td></tr>
+        <tr><td>Logging / monitoring</td><td>Structured event, redaction, correlation ID; password/token/session/key ve kontrol karakterlerini loglama.</td><td>Structured logger, field redaction, control-character escaping; secret ve attacker-controlled raw value'yu sınırlama.</td><td>Filter SessionId/metadata logluyor; dosya appender davranışı konu sayfasında açıklanıyor.</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="native"><h2>Native, dosya ve bellek güvenliği</h2>
+      <div class="table-wrap"><table><thead><tr><th>Konu</th><th>Java / Spring Boot karşılığı</th><th>Modern C++ karşılığı</th><th>Önerilen ek kontrol</th></tr></thead><tbody>
+        <tr><td>Buffer Overflow / bounds</td><td>Java heap erişimleri bounds-checked olsa da JNI, native library, off-heap buffer ve ByteBuffer offset/limit hataları ayrıca risk taşır.</td><td>`strcpy`/`sprintf`/`gets` kullanma; `std::string`, `std::vector`, `std::array`, `std::span`, `.at()` ve explicit length kullan.</td><td>ASan, UBSan, compiler hardening, boundary tests, fuzzing.</td></tr>
+        <tr><td>Integer overflow / format string</td><td>Uzunluk, kapasite ve numeric conversion overflow/underflow kontrolleri; format API'sine untrusted format verme.</td><td>Checked arithmetic, signed/unsigned sınır kontrolü; `printf(userInput)` yerine sabit format + değer argümanı.</td><td>Static analyzer, sanitizer, property/fuzz test.</td></tr>
+        <tr><td>Use-after-free / ownership</td><td>GC use-after-free türü riskleri azaltır; resource lifecycle, stream close ve native boundary yine ele alınır.</td><td>RAII, value semantics, `std::unique_ptr`/gerektiğinde `std::shared_ptr`; raw owning pointer'dan kaçın.</td><td>ASan, lifetime/static analysis, code review.</td></tr>
+        <tr><td>File security / path traversal</td><td>Canonical path root altında mı kontrol et; izinleri daralt; temp dosyayı güvenli oluştur ve temizle.</td><td>`std::filesystem` ile canonical path + izin kontrolü; symlink/TOCTOU sınırlarını ayrıca tasarla.</td><td>Fixed storage root, least privilege, race-aware tests.</td></tr>
+        <tr><td>Secure deletion / temporary files</td><td>Temporary file API, kontrollü izin, cleanup; flash/storage behavior nedeniyle secure erase garantisi varsayma.</td><td>RAII temp-file wrapper, restrictive permissions, lifecycle cleanup; fiziksel erase varsayma.</td><td>Threat model ve storage platform garantilerini doğrula.</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="test"><h2>Test ve analiz araçları</h2>
+      <div class="table-wrap"><table><thead><tr><th>İhtiyaç</th><th>Java</th><th>C++</th><th>Sınır</th></tr></thead><tbody>
+        <tr><td>Static analysis</td><td>SpotBugs/FindSecBugs, SonarQube</td><td>clang-tidy, cppcheck, Coverity</td><td>Runtime davranışı, erişim politikası ve incelenmeyen branch'leri tek başına kanıtlamaz.</td></tr>
+        <tr><td>Dependency/SCA</td><td>OWASP Dependency-Check ve dependency advisory review</td><td>SBOM/package scanner ve vendor advisory review</td><td>Bulunan kütüphanenin reachable/impact durumunu ayrıca triage et.</td></tr>
+        <tr><td>Dynamic/runtime</td><td>Integration/API testleri, OWASP ZAP yalnızca izinli local/test hedefinde</td><td>ASan/UBSan, Valgrind ve runtime testleri</td><td>Test kapsamı dışında kalan davranış güvence altına alınmaz.</td></tr>
+        <tr><td>Fuzzing</td><td>Parser/API girişleri için property-based veya uygun JVM fuzz testleri</td><td>libFuzzer/AFL++ ile parser ve binary boundary fuzzing</td><td>Harness, timeout, corpus, sanitizer ve bulgu triage gerektirir.</td></tr>
+      </tbody></table></div>
+    </section>
+    <section id="ilke"><h2>Ortak tasarım ilkesi</h2>
+      <p>Dil değişse de karar zinciri aynıdır: girdiyi doğru canonical biçime getir, amaçlanan formata allowlist ile doğrula, kimliği doğrula, kaynağa göre yetkiyi kontrol et, doğru bağlamda güvenli çıktı üret, secret'ları koru ve davranışı test et. Java framework kontrolleri C++'ta otomatik oluşmaz; C++'ın bellek güvenliği ve sahiplik modeli ise HTTP authorization yerine geçmez.</p>
+      <p>İleri okuma: <a href="12-buffer-overflow.html">Buffer Overflow</a>, <a href="21-statik-dinamik-analiz.html">statik/dinamik analiz</a>, <a href="eksik-demolar.html">eksik demo önerileri</a> ve <a href="sinav-haritasi.html">sınav haritası</a>.</p>
+    </section>
+    <nav class="pager" aria-label="Sayfa gezinme"><a href="eksik-demolar.html">← Önceki: Eksik demo önerileri</a><a href="index.html">Eğitime dön →</a></nav>
+    <footer class="site-footer">Araç ve API seçimi projedeki compiler/framework sürümüne göre doğrulanmalıdır. Bu workspace'te C++ kodu bulunmadığından C++ örnekleri dil/araç düzeyinde genel karşılıktır.</footer>
+  </div></main>
+</div>
+</body>
+</html>

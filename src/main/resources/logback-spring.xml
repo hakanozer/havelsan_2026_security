@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Log dosyalarının tutulacağı dizin -->
+    <property name="LOG_PATH" value="logs"/>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <!-- Konsol çıktısı -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%thread]){magenta} %clr(%-5level) %clr(%logger{36}){cyan} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Günlük dosya appender -->
+    <appender name="DAILY_FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- Aktif dosya -->
+        <file>${LOG_PATH}/application.log</file>
+
+        <encoder>
+            <pattern>
+                ================================================================
+                Date      : %d{yyyy-MM-dd HH:mm:ss.SSS}
+                Level     : %-5level
+                Thread    : [%thread]
+                Logger    : %logger{50}
+                Message   : %msg
+                %n
+            </pattern>
+        </encoder>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <!-- Her gün yeni dosya -->
+            <fileNamePattern>
+                ${LOG_PATH}/%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+
+            <!-- 30 gün sakla -->
+            <maxHistory>30</maxHistory>
+
+        </rollingPolicy>
+
+    </appender>
+
+    <!-- Sadece FilterConfig logları -->
+    <logger name="com.works.config.FilterConfig"
+            level="INFO"
+            additivity="false">
+
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="DAILY_FILE"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

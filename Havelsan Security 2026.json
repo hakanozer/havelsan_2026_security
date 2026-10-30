@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "name": "Havelsan Security 2026 - Structured",
+    "description": "Müşteri, Ürün ve Not yönetimi ile Güvenlik Zafiyet Testleri için yapılandırılmış collection.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "1939021"
+  },
+  "item": [
+    {
+      "name": "1. Müşteri Yönetimi",
+      "item": [
+        {
+          "name": "Müşteri Kayıt (Register)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"zehra.yilmaz@havelsan.com.tr\",\n    \"password\": \"SecureP@ss2026!\",\n    \"roles\": [\n        { \"rid\": 1 },\n        { \"rid\": 2 }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}customer/register",
+              "host": [ "{{url}}customer" ],
+              "path": [ "register" ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Müşteri Giriş (Valid Login)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"zehra.yilmaz@havelsan.com.tr\",\n    \"password\": \"SecureP@ss2026!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}customer/login",
+              "host": [ "{{url}}customer" ],
+              "path": [ "login" ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Ürün Yönetimi",
+      "item": [
+        {
+          "name": "Ürün Kaydet (Save)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"El Yapımı Porselen Vazo\",\n    \"price\": 15000.00,\n    \"city\": \"Bursa\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}product/save",
+              "host": [ "{{url}}product" ],
+              "path": [ "save" ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ürün Listele (List)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}product/list",
+              "host": [ "{{url}}product" ],
+              "path": [ "list" ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Not Yönetimi",
+      "item": [
+        {
+          "name": "Not Kaydet (Save)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Sprint Planlama Toplantısı\",\n    \"content\": \"Yeni güvenlik zafiyet taraması sonuçları değerlendirilecek ve aksiyon planı çıkarılacak.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}note/save",
+              "host": [ "{{url}}note" ],
+              "path": [ "save" ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Not Listele (List)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}note/list",
+              "host": [ "{{url}}note" ],
+              "path": [ "list" ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Güvenlik & Zafiyet Testleri",
+      "item": [
+        {
+          "name": "SQL Injection Testi (Login)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin' OR '1'='1' --\",\n    \"password\": \"dummy_password\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}customer/login",
+              "host": [ "{{url}}customer" ],
+              "path": [ "login" ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "XSS Testi (Note Save)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"<script>alert('XSS Test')</script>\",\n    \"content\": \"Normal içerik metni.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}note/save",
+              "host": [ "{{url}}note" ],
+              "path": [ "save" ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CSRF & Session Testi (External)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "user_name",
+                  "value": "admin",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://phppot.com/demo/user-login-session-timeout-logout-in-php/index.php",
+              "protocol": "https",
+              "host": [ "phppot", "com" ],
+              "path": [ "demo", "user-login-session-timeout-logout-in-php", "index.php" ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "SecureP@ss2026!",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "zehra.yilmaz@havelsan.com.tr",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [ "" ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [ "" ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "http://localhost:8090/",
+      "type": "string"
+    }
+  ]
+}

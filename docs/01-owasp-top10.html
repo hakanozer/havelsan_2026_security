@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OWASP Top 10 risklerini gerçek Spring Boot eğitim projesiyle eşleştirme.">
+  <title>01 · OWASP Top 10 | Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button></div>
+    <nav class="side-nav" aria-label="Dokümanlar"><ul>
+      <li><a href="index.html">Eğitim ana sayfası</a></li><li><a href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+      <li><a aria-current="page" href="01-owasp-top10.html">OWASP Top 10</a></li><li><a href="02-sql-injection.html">SQL Injection</a></li>
+      <li><a href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li><li><a href="04-xxe.html">XXE</a></li>
+      <li><a href="05-broken-authentication.html">Broken Authentication</a></li><li><a href="06-session-guvenligi.html">Session güvenliği</a></li>
+      <li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li><li><a href="08-authorization-bypass.html">Authorization Bypass</a></li>
+      <li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li><li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li>
+      <li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li><li><a href="12-buffer-overflow.html">Buffer Overflow</a></li>
+      <li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li><li><a href="14-csrf.html">CSRF</a></li>
+      <li><a href="15-web-mvc-security.html">Web MVC Security</a></li><li><a href="16-java-kriptografi.html">Java kriptografi</a></li>
+      <li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li><li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li>
+      <li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li><li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li>
+      <li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li><li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+      <li><a href="sinav-haritasi.html">Sınav haritası</a></li><li><a href="eksik-demolar.html">Eksik demolar</a></li>
+      <li><a href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+    </ul></nav>
+  </aside>
+  <main class="main"><div class="content">
+    <header class="page-header">
+      <p class="eyebrow">Riskleri sınıflandırma · Spring Boot 4.1.0 / Java 17</p>
+      <h1>OWASP Top 10: riskleri projede okumak</h1>
+      <p>OWASP Top 10, web uygulamalarındaki yaygın riskleri konuşmak için bir farkındalık çerçevesidir; güvenlik testi veya eksiksiz kontrol listesi değildir. Bu projede özellikle injection savunması, kimlik doğrulama, erişim kontrolü, güvenlik yapılandırması ve loglama katmanlarına bakacağız.</p>
+      <div class="meta-row"><span class="meta-tag">Okuma süresi: 18 dk</span><span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span><span class="meta-tag">Eşleşme: OWASP Top 10 2021 · A01, A02, A03, A05, A07, A09</span></div>
+    </header>
+    <nav class="toc" aria-label="Sayfa içindekiler"><strong>İçindekiler</strong><ul>
+      <li><a href="#neden">Neden önemli?</a></li><li><a href="#saldiri">Risk zinciri</a></li><li><a href="#proje">Projede nerede?</a></li>
+      <li><a href="#once">Mevcut ve iyileştirilmiş yaklaşım</a></li><li><a href="#demo">Canlı demo</a></li><li><a href="#katman">Katman ve kontrol listesi</a></li>
+    </ul></nav>
+    <section id="neden"><h2>Neden önemli?</h2>
+      <p>Bir ürün ekibi “Top 10 maddelerini kapattık” diye düşündüğünde, gerçek risk çoğunlukla iki kontrol arasındaki boşlukta kalır: uygulama girdiyi parametreli sorguya verir ama parolayı yanlış doğrular; authentication çalışır ama endpoint rol kontrolü eksik kalır; filtre request’i değiştirir ama response’ta güvenli encoding yapılmaz. Sonuç, veri gizliliği veya bütünlüğünün kaybı ve hizmet kesintisi olabilir.</p>
+      <p>Kritik/savunma yazılımlarında benzer hata, operasyonel verinin ifşasına veya yetkisiz işlem yapılmasına dönüşebilir. OWASP Top 10 ve OWASP ASVS, risk sınıflandırması ve doğrulanabilir kontroller için başlangıç rehberleridir; proje bağlamındaki risk analizi ve testlerin yerini tutmaz.</p>
+    </section>
+    <section id="saldiri"><h2>Saldırı nasıl çalışır?</h2>
+      <ol>
+        <li>İstemci, endpoint’e bir girdi veya kimlik bilgisi yollar.</li>
+        <li>Uygulama o girdiyi yorumlama, doğrulama, kimlik veya yetki kontrolü olmadan yanlış bağlama aktarır.</li>
+        <li>Veritabanı, parser, tarayıcı veya erişim kontrolü girdiyi saldırganın beklediği farklı anlamda işler.</li>
+        <li>Veri sızar/değişir, yetkisiz işlem gerçekleşir ya da servis kaynak tüketir.</li>
+        <li>Katmana uygun kontrol (parametre bağlama, doğrulama, authorization, output encoding, güvenli yapılandırma) zinciri doğru noktada keser.</li>
+      </ol>
+    </section>
+    <section id="proje"><h2>Projemizde nerede?</h2>
+      <div class="table-wrap"><table><thead><tr><th>Risk alanı</th><th>Projeden gerçek referans</th><th>Okuma notu</th></tr></thead><tbody>
+        <tr><td>Injection</td><td><a href="../src/main/java/com/works/service/CustomerService.java">CustomerService.java:66-78</a></td><td>SQL parametreli; mevcut örnek SQLi için zayıf değil. Login'in parola kontrolü ayrıca hatalı.</td></tr>
+        <tr><td>Authentication</td><td><a href="../src/main/java/com/works/config/SecurityConfig.java">SecurityConfig.java:22-42</a>, <a href="../src/main/java/com/works/config/AppBeans.java">AppBeans.java:17-20</a></td><td>HTTP Basic ve BCrypt provider'ı; ayrıca public login endpoint'i.</td></tr>
+        <tr><td>Authorization</td><td><a href="../src/main/java/com/works/config/SecurityConfig.java">SecurityConfig.java:26-34</a>, <a href="../src/main/java/com/works/service/CustomerService.java">CustomerService.java:38-42</a></td><td>Product/Note rol kuralları ve kayıt DTO'sundan role mapping akışı.</td></tr>
+        <tr><td>Configuration / logging</td><td><a href="../src/main/resources/application.properties">application.properties:4-18</a>, <a href="../src/main/java/com/works/config/FilterConfig.java">FilterConfig.java:51-69</a></td><td>Secrets/config ve SessionId loglama için inceleme noktaları.</td></tr>
+      </tbody></table></div>
+      <figure class="diagram"><svg viewBox="0 0 760 145" role="img" aria-labelledby="risk-svg-title risk-svg-desc">
+        <title id="risk-svg-title">Risk zinciri ve kontrol noktaları</title><desc id="risk-svg-desc">Girdi; parser, iş mantığı ve veri katmanlarından geçer. Her katmandaki uygun kontrol saldırı zincirini keser.</desc>
+        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path></marker></defs>
+        <rect class="node" x="10" y="40" width="125" height="55" rx="8"></rect><text x="72" y="72" text-anchor="middle">İstek / girdi</text>
+        <line class="edge" x1="135" y1="67" x2="185" y2="67"></line><rect class="node" x="185" y="40" width="150" height="55" rx="8"></rect><text x="260" y="72" text-anchor="middle">Filter / validation</text>
+        <line class="edge" x1="335" y1="67" x2="385" y2="67"></line><rect class="node" x="385" y="40" width="145" height="55" rx="8"></rect><text x="457" y="72" text-anchor="middle">Auth / business</text>
+        <line class="edge" x1="530" y1="67" x2="580" y2="67"></line><rect class="node" x="580" y="40" width="160" height="55" rx="8"></rect><text x="660" y="72" text-anchor="middle">DB / response</text>
+      </svg><figcaption>Tek bir kontrol tüm riskleri çözmez: defense in depth, her sınırda farklı kontrol kullanır.</figcaption></figure>
+    </section>
+    <section id="once"><h2>ÖNCE / SONRA: Top 10 bir kod değişikliği değildir</h2>
+      <p>Top 10 bir sınıflandırma olduğundan projede “önceki zayıf Top 10 kodu” diye tek bir satır yoktur. Aşağıda gerçek bir parametreli sorgu gösterilmiştir; bu, SQL Injection'a karşı mevcut doğru örnektir. Her konu sayfası kendi proje kodunu ayrı ele alacaktır.</p>
+      <h3>Projede mevcut: parametre bağlama</h3>
+      <p>Kaynak: <a href="../src/main/java/com/works/service/CustomerService.java">src/main/java/com/works/service/CustomerService.java:66-73</a></p>
+      <pre id="top10-current"><code><span class="code-line" data-line="66">public boolean login(CustomerLoginRequestDto req) {</span><span class="code-line safe" data-line="68">    String sql = "select * from customer where email = ? and password = ?";</span><span class="code-line safe" data-line="69">    PreparedStatement st = dataSource.getConnection().prepareStatement(sql);</span><span class="code-line safe" data-line="70">    st.setString(1, req.getEmail());</span><span class="code-line safe" data-line="71">    st.setString(2, req.getPassword());</span><span class="code-line safe" data-line="72">    ResultSet rs = st.executeQuery();</span><span class="code-line" data-line="73">    return rs.next();</span><span class="code-line" data-line="78">}</span></code></pre>
+      <div class="code-toolbar"><button class="copy-button" type="button" data-copy="#top10-current">Kopyala</button><span class="copy-status" data-copy-status role="status"></span></div>
+      <p><strong>Sonuç:</strong> SQL metni sabittir; email/parola değerleri ayrı parametreler olarak gönderilir. Girilen `' OR '1'='1` ifadesi SQL koduna dönüşmez. Ancak bu kodun parolayı ham değerle karşılaştırması, kayıt akışının BCrypt kullanmasıyla tutarsızdır; SQLi savunması authentication tasarımını tek başına güvenli yapmaz.</p>
+      <h3>Önerilen düzeltme ilkesi</h3>
+      <p>Projede Top 10 için tek kapsamlı “sonra” sürümü yoktur. Her kontrolü ilgili katmanda düzeltin ve test edin: kimlik, yetki ve input/output kontrollerini birbirinin yerine kullanmayın.</p>
+    </section>
+    <section id="demo"><h2>Canlı demo adımları</h2>
+      <ol>
+        <li>Yerel API'yi açın ve kayıt veritabanının kullanılabilir olduğunu doğrulayın. Projede kullanıcı seed'i/parolası verilmediğinden, başarılı kullanıcı varsaymayın.</li>
+        <li><code>POST /customer/login</code> isteğini normal test girdisiyle ve yalnızca yerel laboratuvarda sabit metin içeren `email` alanıyla deneyin. Parametreli sorgu bunları SQL yapısına birleştirmez; expected result mevcut DB verisine göre true/false olabilir.</li>
+        <li><code>GET /product/list</code> ve <code>GET /note/list</code> için HTTP Basic ile doğru/yanlış rol davranışını karşılaştırın. Credential örneği kaynağa dahil edilmediği için gerçek parola kullanmayın.</li>
+        <li>Sonuçları sınıflandırın: SQL injection yok; authentication uyumsuzluğu ve rol/seed belirsizliği ayrı bulgulardır. Bunları birbirine karıştırmayın.</li>
+      </ol>
+      <pre><code>curl -i -X POST http://localhost:8090/customer/login \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"ornek@example.test","password":"egitim-parolasi"}'
+
+curl -i http://localhost:8090/product/list
+# Yetkili bir test hesabı ancak yerel veritabanında hazırsa:
+curl -i -u 'yerel-test-kullanicisi:yerel-parola' \
+  http://localhost:8090/product/list</code></pre>
+      <aside class="warning dikkat"><strong>Dikkat</strong>Bu örnekleri yalnızca izole, yerel eğitim uygulamasında çalıştırın. Gerçek kullanıcı/parola veya ağa açık hedef kullanmayın.</aside>
+    </section>
+    <section id="katman"><h2>Önlemler mimaride nereye oturur?</h2>
+      <ul><li><strong>Filter/config:</strong> genel istek politikaları, authentication zinciri, rate limit.</li><li><strong>Controller/DTO:</strong> şekil ve alan doğrulaması; authorization kuralı service erişimini de kapsamalı.</li><li><strong>Service:</strong> iş kuralı, parola doğrulaması ve kullanıcıya bağlı kayıt erişimi.</li><li><strong>Repository:</strong> parametreli sorgu/ORM erişimi; SQL parametresi XSS veya yetki kontrolü değildir.</li><li><strong>Response:</strong> tüketen bağlama uygun output encoding; request temizliği bunun yerine geçmez.</li></ul>
+      <p>Neden tek alternatif yeterli değil? Blacklist yalnızca bilinen örüntüleri yakalar; global sanitizer bağlamı bilmez; authentication kimliği doğrular ama erişim iznini değil. Defense in depth, doğru kontrolü doğru aşamaya yerleştirir.</p>
+      <aside class="warning cpp"><strong>C++ Karşılığı</strong><br>• C++ servislerinde aynı risk alanları input parsing, yetki ve DB sınırlarında oluşur.<br>• SQL'i string birleştirme ile kurmak zayıftır; prepared statement/bind parametre kullanın.<br>• Kullanıcı girdisini izinli biçim ve uzunlukla doğrulayın; regex için ReDoS riskini göz önünde bulundurun.<br>• Bellek güvenliğinde `std::string`/`std::vector` ve bounds kontrolünü tercih edin.<br>• `clang-tidy`, `cppcheck` ve gerektiğinde AddressSanitizer ile doğrulayın.<br>• SEI CERT C++ ve C++ Core Guidelines kod incelemesine referans olabilir.</aside>
+    </section>
+    <section id="kontrol"><h2>Sık yapılan hatalar ve kontrol listesi</h2><ul>
+      <li>OWASP Top 10'u tam güvenlik standardı ya da kapatılabilir bir checklist sanmak.</li><li>Parametreli SQL'i authentication'ın bütünüyle güvenli olduğu şeklinde yorumlamak.</li><li>Role checks'i sadece arayüzde yapmak; backend erişimini kontrol etmemek.</li><li>Request sanitization'ı output encoding olarak kullanmak.</li><li>Rate limiter'ı hesap/IP bazlı brute-force kontrolü sanmak.</li><li>Hata ve loglarda credential, token veya SessionId bırakmak.</li><li>Önlemi test etmeden “güvenli” olarak işaretlemek.</li></ul></section>
+    <section id="sorular"><h2>Mini sorular</h2>
+      <details><summary>1. PreparedStatement, login akışındaki bütün güvenlik sorunlarını çözer mi?</summary><p>Hayır. SQL koduna veri karışmasını önler; kayıt BCrypt ile saklanırken ham parola kıyaslaması ve erişim kontrolü ayrı sorunlardır.</p></details>
+      <details><summary>2. OWASP Top 10 uygulaması güvenli ilan etmek için yeterli midir?</summary><p>Hayır. Risk farkındalığı sağlar; tehdit modelleme, ASVS gibi kontrol gereksinimleri, test ve operasyon kontrolleri ayrıca gerekir.</p></details>
+      <details><summary>3. Request sanitizer neden XSS output encoding yerine geçmez?</summary><p>Encoding, verinin HTML/attribute/JavaScript/URL gibi çıktıda kullanıldığı bağlama göre yapılır. Girdiyi genel biçimde değiştirmek aynı bağlam bilgisini taşımaz.</p></details>
+    </section>
+    <nav class="pager" aria-label="Sayfa gezinme"><a href="00-proje-tanitimi.html">← Önceki: Proje tanıtımı</a><a href="02-sql-injection.html">Sonraki: SQL Injection →</a></nav>
+    <footer class="site-footer">Proje referansları kaynak koduna göre verilmiştir; OWASP eşleşmeleri risk sınıflandırması olarak kullanılır.</footer>
+  </div></main>
+</div>
+</body>
+</html>

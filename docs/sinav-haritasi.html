@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Güvenli yazılım geliştirme ön/son test kavramlarını ders konularıyla eşleyen harita.">
+  <title>Sınav Haritası | Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button></div>
+    <nav class="side-nav" aria-label="Dokümanlar">
+      <ul>
+        <li><a href="index.html">Eğitim ana sayfası</a></li>
+        <li><a href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+        <li><a href="01-owasp-top10.html">OWASP Top 10</a></li>
+        <li><a href="02-sql-injection.html">SQL Injection</a></li>
+        <li><a href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li>
+        <li><a href="04-xxe.html">XXE</a></li>
+        <li><a href="05-broken-authentication.html">Broken Authentication</a></li>
+        <li><a href="06-session-guvenligi.html">Session güvenliği</a></li>
+        <li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li>
+        <li><a href="08-authorization-bypass.html">Authorization Bypass</a></li>
+        <li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li>
+        <li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li>
+        <li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li>
+        <li><a href="12-buffer-overflow.html">Buffer Overflow</a></li>
+        <li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li>
+        <li><a href="14-csrf.html">CSRF</a></li>
+        <li><a href="15-web-mvc-security.html">Web MVC Security</a></li>
+        <li><a href="16-java-kriptografi.html">Java kriptografi</a></li>
+        <li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li>
+        <li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li>
+        <li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li>
+        <li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li>
+        <li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li>
+        <li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+        <li><a aria-current="page" href="sinav-haritasi.html">Sınav haritası</a></li>
+        <li><a href="eksik-demolar.html">Eksik demolar</a></li>
+        <li><a href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <header class="page-header">
+        <p class="eyebrow">Aşama 4 · son kapsam kontrolü</p>
+        <h1>Ön/son test kavram haritası</h1>
+        <p>Ön/son testte sorulacak kavramların her biri ilgili ders sayfasına ve bu projedeki mevcut duruma bağlanmıştır. Projede olmayan örnekler gerçek proje kodu gibi sunulmaz; öneri oldukları ayrıca işaretlenir.</p>
+        <div class="meta-row">
+          <span class="meta-tag">Okuma süresi: 8 dk</span>
+          <span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span>
+        </div>
+      </header>
+
+      <nav class="toc" aria-label="Sayfa içindekiler">
+        <strong>Bu sayfada</strong>
+        <ul>
+          <li><a href="#girdi">Girdi yönetimi</a></li>
+          <li><a href="#cikti">Çıktı yönetimi</a></li>
+          <li><a href="#kimlik">Kimlik ve hassas parametreler</a></li>
+          <li><a href="#oturum">Oturum, CSRF ve filtreler</a></li>
+          <li><a href="#analiz">Analiz ve bellek güvenliği</a></li>
+        </ul>
+      </nav>
+
+      <section id="girdi">
+        <h2>Girdi yönetimi</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Test kavramı</th><th>Planlanan konu</th><th>Proje kanıtı / not</th></tr></thead>
+          <tbody>
+            <tr><td>Normalization, Canonicalization</td><td><a href="11-girdi-dogrulama.html">11 · Girdi doğrulama</a></td><td>Projede genel amaçlı canonicalization katmanı yok; demo önerisi olarak ayrılır.</td></tr>
+            <tr><td>Regular Expressions, ReDoS</td><td><a href="11-girdi-dogrulama.html">11 · Girdi doğrulama</a></td><td>Regex doğrulaması bulunmadı; uzun/kötü biçimli girdiler için sınır ve zaman aşımı anlatılır.</td></tr>
+            <tr><td>Beyaz liste / Kara liste, Bean Validation</td><td><a href="11-girdi-dogrulama.html">11 · Girdi doğrulama</a></td><td>Kayıt DTO kısıtları ve CityValidator whitelist örneği mevcuttur; tüm endpoint'lere uygulandığı varsayılmaz.</td></tr>
+            <tr><td>SQL / XML / LDAP Injection</td><td><a href="02-sql-injection.html">02</a> · <a href="03-xml-ldap-injection.html">03</a></td><td>SQL parametreli; XML parser hardening var; LDAP ve dinamik XML/LDAP sorgu örneği yok.</td></tr>
+            <tr><td>XXE</td><td><a href="04-xxe.html">04 · XXE</a></td><td>SAX parser güvenli özellikleri kapatıyor; güvensiz parser varyantı yok.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="cikti">
+        <h2>Çıktı yönetimi</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Test kavramı</th><th>Planlanan konu</th><th>Proje kanıtı / not</th></tr></thead>
+          <tbody>
+            <tr><td>Anti-XSS Output Encoding, XSS önleme teknikleri</td><td><a href="10-xss-ve-output-encoding.html">10 · XSS / Output Encoding</a></td><td>Request wrapper var; browser'a HTML üreten output sink ve context-aware encoder demonstrasyonu yok.</td></tr>
+            <tr><td>Kullanıcı adı/parola ve hassas parametre güvenliği</td><td><a href="16-java-kriptografi.html">16</a>, <a href="19-rest-api-guvenligi.html">19</a>, <a href="22-guvenli-loglama-ve-izleme.html">22</a></td><td>BCrypt kayıt yolu ve log davranışı incelenir; gerçek parola/anahtar dokümana taşınmaz.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="kimlik">
+        <h2>Kimlik doğrulama ve kaba kuvvet</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Test kavramı</th><th>Planlanan konu</th><th>Proje kanıtı / not</th></tr></thead>
+          <tbody>
+            <tr><td>Basic, Digest, Form, Windows Authentication, MFA</td><td><a href="05-broken-authentication.html">05 · Broken Authentication</a></td><td>HTTP Basic var, Form login kapalı; Digest/Windows/MFA yok. Yöntemlerin farkları ve kullanım koşulları anlatılır.</td></tr>
+            <tr><td>Brute-force önleme algoritmaları</td><td><a href="05-broken-authentication.html">05</a> ve <a href="19-rest-api-guvenligi.html">19</a></td><td>Ortak/global rate limiter var; kullanıcı/IP bazlı başarısız giriş sayacı, kademeli gecikme ve hesap koruması varsayılmaz.</td></tr>
+            <tr><td>JWT / role-based authorization</td><td><a href="18-jwt-guvenligi.html">18 · JWT</a>, <a href="17-roller-ve-yetkilendirme.html">17 · Roller</a></td><td>Roller var; JWT implementasyonu yok.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="oturum">
+        <h2>Oturum, CSRF ve istek filtreleri</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Test kavramı</th><th>Planlanan konu</th><th>Proje kanıtı / not</th></tr></thead>
+          <tbody>
+            <tr><td>Session Hijacking, HttpOnly, Secure, SameSite, fixation ve timeout</td><td><a href="06-session-guvenligi.html">06 · Session</a></td><td>Filter session açıyor ve ID logluyor; cookie flag, fixation ve timeout için açık uygulama yapılandırması yok.</td></tr>
+            <tr><td>CSRF Prevention Cheat Sheet: token, SameSite, double submit (double-submit cookie), Origin/Referer</td><td><a href="14-csrf.html">14 · CSRF</a></td><td>CSRF kapalı; credential modeline göre bu savunmaların nerede uygun olduğu açıklanır.</td></tr>
+            <tr><td>Java Servlet Filters, OncePerRequestFilter, SecurityFilterChain</td><td><a href="15-web-mvc-security.html">15 · Web MVC Security</a></td><td>Servlet Filter ve SecurityFilterChain mevcut; OncePerRequestFilter yok. Filter kontrolünün iş katmanı authorization yerine geçmediği açıklanır.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="analiz">
+        <h2>Analiz ve bellek güvenliği</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Test kavramı</th><th>Planlanan konu</th><th>Proje kanıtı / not</th></tr></thead>
+          <tbody>
+            <tr><td>Statik/dinamik kod analizi ve araçları</td><td><a href="21-statik-dinamik-analiz.html">21 · Analiz</a></td><td>SpotBugs/FindSecBugs, SonarQube, Dependency-Check, ZAP; C++ için clang-tidy, cppcheck, sanitizer ve fuzzing anlatılır. Projede entegrasyon yoktur.</td></tr>
+            <tr><td>Buffer Overflow</td><td><a href="12-buffer-overflow.html">12 · Buffer Overflow</a> ve <a href="cpp-ozet-tablo.html">C++ özeti</a></td><td>Java projesinde native örnek yok; sınır dışı erişim ve modern C++ karşılığı anlatılır.</td></tr>
+            <tr><td>Güvenli yükleme ve image upload</td><td><a href="09-dosya-yukleme-guvenligi.html">09 · Dosya yükleme</a></td><td>Upload endpoint'i yok; tip/uzantı/içerik doğrulama, boyut sınırı, yeniden kodlama ve depolama sınırı demo önerisidir.</td></tr>
+            <tr><td>Dosya path traversal ve izinler</td><td><a href="20-dosya-guvenligi.html">20 · Dosya güvenliği</a></td><td>Dosya endpoint'i yok; canonical path ve izin kontrolleri demo önerisidir.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <aside class="warning egitmen">
+        <strong>Eğitmen Notu</strong>
+        Buradaki “projede var” ifadeleri yalnızca belirtilen kod/config kanıtı içindir; bütün akışlarda güvenli olduğu anlamına gelmez. Projede bulunmayan canlı örnekler ve önerilen sınıf/endpoint adları <a href="eksik-demolar.html">eksik demo kataloğunda</a> açıkça “öneri” olarak etiketlenmiştir.
+      </aside>
+
+      <nav class="pager" aria-label="Sayfa gezinme">
+        <a href="00-proje-tanitimi.html">← Önceki: Proje tanıtımı</a>
+        <a href="eksik-demolar.html">Sonraki: Eksik demo önerileri →</a>
+      </nav>
+      <footer class="site-footer">Kapsam tamamlandı: girdi/çıktı yönetimi, auth/session, CSRF/filter, analiz, dosya ve native bellek güvenliği bu haritada ilgili ders sayfalarına bağlanmıştır.</footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>

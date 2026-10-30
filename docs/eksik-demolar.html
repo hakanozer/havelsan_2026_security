@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Eğitim projesinde bulunmayan güvenlik örnekleri için açıkça öneri olarak işaretlenmiş yerel demo kataloğu.">
+  <title>Eksik Demo Önerileri | Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button></div>
+    <nav class="side-nav" aria-label="Dokümanlar"><ul>
+      <li><a href="index.html">Eğitim ana sayfası</a></li><li><a href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+      <li><a href="01-owasp-top10.html">OWASP Top 10</a></li><li><a href="02-sql-injection.html">SQL Injection</a></li><li><a href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li><li><a href="04-xxe.html">XXE</a></li><li><a href="05-broken-authentication.html">Broken Authentication</a></li><li><a href="06-session-guvenligi.html">Session güvenliği</a></li><li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li><li><a href="08-authorization-bypass.html">Authorization Bypass</a></li><li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li><li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li><li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li><li><a href="12-buffer-overflow.html">Buffer Overflow</a></li><li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li><li><a href="14-csrf.html">CSRF</a></li><li><a href="15-web-mvc-security.html">Web MVC Security</a></li><li><a href="16-java-kriptografi.html">Java kriptografi</a></li><li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li><li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li><li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li><li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li><li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li><li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+      <li><a href="sinav-haritasi.html">Sınav haritası</a></li><li><a aria-current="page" href="eksik-demolar.html">Eksik demo önerileri</a></li><li><a href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+    </ul></nav>
+  </aside>
+  <main class="main"><div class="content">
+    <header class="page-header">
+      <p class="eyebrow">Proje dışı örnekler · eğitmen için yerel demo kataloğu</p>
+      <h1>Projede Henüz Olmayan Demolar</h1>
+      <p>Bu sayfadaki sınıf, paket ve endpoint adlarının tamamı <strong>öneridir; mevcut repository içeriği değildir.</strong> Amaç, proje referansı uydurmadan eksik konular için kısa ve izole bir ders demosu sağlamaktır. Önerilen endpoint'ler yalnızca localhost/test profilinde çalıştırılmalı, dış ağa açılmamalıdır.</p>
+      <div class="meta-row"><span class="meta-tag">Okuma süresi: 12 dk</span><span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span><span class="meta-tag">Tüm örnekler yeni demo önerisidir</span></div>
+    </header>
+    <aside class="warning dikkat"><strong>Dikkat</strong>Buradaki örnek adları gerçek proje kodunu, var olan endpoint'leri veya kurulmuş bir altyapıyı göstermiyor. Bilerek zayıf örnek gerekiyorsa yalnızca disposable, localhost'a bağlı eğitim profilinde tutun; production artifact'ına dahil etmeyin.</aside>
+    <nav class="toc" aria-label="Sayfa içindekiler"><strong>Bu sayfada</strong><ul><li><a href="#sinir">Proje sınırı</a></li><li><a href="#web">Java/Spring demo önerileri</a></li><li><a href="#native">Native C++ ve analiz</a></li><li><a href="#uygulama">Güvenli demo uygulama sırası</a></li></ul></nav>
+
+    <section id="sinir">
+      <h2>Mevcut proje ile demo sınırı</h2>
+      <p>Mevcut örnekler için gerçek dosya ve metotlar konu sayfalarında gösterilir. Aşağıdaki tabloda sadece karşılığı bulunmayan veya yalnızca kısmen bulunan davranışlar listelenmiştir. Bir konuya ait savunma kodunun bulunması, bütün ilişkili akışların tamamlandığı anlamına gelmez.</p>
+      <ul>
+        <li>Örnek: projede güvenli SAX parser ayarı bulunur; güvensiz XXE parser'ı bulunmaz. Bu yüzden güvensiz sürüm ayrı demo önerisidir.</li>
+        <li>Örnek: HTTP Basic ve ortak rate limiter kodu vardır; Digest, Windows Authentication, MFA ve kullanıcı hesabı bazlı brute-force akışı yoktur.</li>
+        <li>Örnek: request wrapper vardır; browser'a HTML üreten sink ve context-aware output encoding akışı yoktur.</li>
+      </ul>
+    </section>
+
+    <section id="web">
+      <h2>Java/Spring için minimum demo önerileri</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Konu ve mevcut durum</th><th>Önerilen minimum ekleme (yeni adlar)</th><th>Demo sınırı / güvenli gösterim</th></tr></thead>
+        <tbody>
+          <tr><td><a href="03-xml-ldap-injection.html">XML Injection</a> ve <a href="03-xml-ldap-injection.html">LDAP Injection</a><br><strong>Yok</strong></td><td>Öneri paketi: <code>com.works.training.injection</code><br>Sınıf: <code>XmlLdapDemoController</code><br>Endpoint: <code>GET /training/demo/xml-search</code> ve <code>GET /training/demo/ldap-search</code></td><td>Gerçek LDAP sunucusuna bağlanmak yerine in-memory mock kullanın. Zayıf query oluşturma ile güvenli API/parametreleme farkını yalnızca sentetik girdide gösterin.</td></tr>
+          <tr><td><a href="04-xxe.html">XXE</a><br><strong>Güvenli parser var, zayıf parser yok</strong></td><td>Öneri paketi: <code>com.works.training.xml</code><br>Sınıf: <code>XxeDemoController</code><br>Endpoint: <code>POST /training/demo/xml/parse</code></td><td>Güvenli parser varsayılanını gösterin. Zayıf ayar karşılaştırması gerekiyorsa harici erişimi kapalı, sahte/sandbox kaynağa bağlı test fixture kullanın; gerçek dosya veya ağa erişim vermeyin.</td></tr>
+          <tr><td><a href="05-broken-authentication.html">Digest / Windows Authentication / MFA</a><br><strong>Basic var; diğerleri yok</strong></td><td>Öneri paketi: <code>com.works.training.auth</code><br>Sınıf: <code>AuthFactorsDemoController</code><br>Önerilen API: <code>POST /training/demo/auth/challenge</code></td><td>Windows/Digest protokolünü sıfırdan taklit etmeyin. Kimlik sağlayıcı adaptörünün sınırını ve MFA ikinci faktör state machine'ini sahte test sağlayıcısıyla gösterin; gerçek OTP/secret üretmeyin.</td></tr>
+          <tr><td><a href="05-broken-authentication.html">Brute-force koruması</a><br><strong>Ortak rate limiter var, hesap akışı yok</strong></td><td>Öneri paketi: <code>com.works.training.auth</code><br>Sınıf: <code>LoginThrottleDemoController</code><br>Önerilen API: <code>POST /training/demo/auth/attempt</code></td><td>Sentetik kullanıcılar ile kullanıcı/IP boyutlu limit, artan gecikme, geçici kilit ve audit olayını test edin. Kilitleme DoS riski, proxy IP güveni ve parola reset akışını da tartışın.</td></tr>
+          <tr><td><a href="06-session-guvenligi.html">Session cookie flags / fixation / timeout</a><br><strong>Açık yapılandırma örneği yok</strong></td><td>Öneri config'i: test profiline özel <code>SessionDemoSecurityConfig</code><br>Önerilen gözlem: <code>GET /training/demo/session</code></td><td>Cookie flag'lerini response header üzerinden doğrulayın. Gerçek session ID'yi loglamayın; yeniden kimlik doğrulama ve idle timeout davranışını test edin.</td></tr>
+          <tr><td><a href="07-https-ssl-yapilandirma.html">HTTPS / TLS</a><br><strong>Proje TLS terminasyonu örneği yok</strong></td><td>Öneri config'i: <code>application-training-https.properties</code> ve <code>HttpsDemoSecurityConfig</code><br>Önerilen health: <code>GET /training/demo/https/status</code></td><td>Self-signed test sertifikası sadece local profil içindir. Private key repository'ye eklenmez; TLS terminasyonunun proxy/uygulama sınırı açıklanır.</td></tr>
+          <tr><td><a href="08-authorization-bypass.html">IDOR / BOLA</a><br><strong>Kasıtlı zayıf ID erişim örneği yok</strong></td><td>Öneri paketi: <code>com.works.training.authorization</code><br>Sınıf: <code>OwnershipDemoController</code><br>Önerilen API: <code>GET /training/demo/records/{id}</code></td><td>İki sentetik kullanıcı ve iki sentetik kayıtla sahiplik kontrolünü gösterin. Zayıf ve güvenli varyantı yalnızca in-memory fixture üzerinde çalıştırın.</td></tr>
+          <tr><td><a href="09-dosya-yukleme-guvenligi.html">Arbitrary file upload / güvenli image upload</a><br><strong>Upload endpoint'i yok</strong></td><td>Öneri paketi: <code>com.works.training.upload</code><br>Sınıf: <code>ImageUploadDemoController</code><br>Önerilen API: <code>POST /training/demo/images</code></td><td>Boyut, uzantı, MIME ve içerik imzasını birlikte doğrulayın; image'ı yeniden decode/encode edin; rastgele sunucu adıyla webroot dışında saklayın. Archive/decompression ve polyglot riskini kapsam sınırı olarak belirtin.</td></tr>
+          <tr><td><a href="10-xss-ve-output-encoding.html">Anti-XSS Output Encoding</a><br><strong>HTML response sink'i yok</strong></td><td>Öneri paketi: <code>com.works.training.output</code><br>Sınıf: <code>OutputEncodingDemoController</code><br>Önerilen API: <code>GET /training/demo/render</code></td><td>HTML context'inde encoder kullanan dar bir local sayfa ve test oluşturun. Framework auto-escaping'ini kapatmayın; input sanitizer'ı output encoding yerine koymayın.</td></tr>
+          <tr><td><a href="11-girdi-dogrulama.html">Normalization / canonicalization / regex ReDoS</a><br><strong>Genel katman yok</strong></td><td>Öneri sınıfı: <code>com.works.training.validation.CanonicalInputValidator</code><br>Test sınıfı: <code>CanonicalInputValidatorTest</code></td><td>Dosya yolu veya kullanıcı adı gibi tek bir tanımlı formatta normalize et → canonical formu doğrula → iş kuralını uygula sırasını test edin. Boyut ve zaman bütçesi koyun.</td></tr>
+          <tr><td><a href="14-csrf.html">CSRF token / SameSite / Origin kontrolü</a><br><strong>CSRF devre dışı</strong></td><td>Öneri sınıfı: <code>com.works.training.csrf.CsrfDemoController</code><br>Önerilen API: <code>POST /training/demo/csrf/action</code></td><td>Cookie-authenticated browser request ile bearer-token request farkını ayırın. Token, Origin/Referer ve SameSite'ı birlikte/uygun credential modelinde test edin.</td></tr>
+          <tr><td><a href="15-web-mvc-security.html">OncePerRequestFilter örneği</a><br><strong>Generic Servlet Filter ve SecurityFilterChain var</strong></td><td>Öneri sınıfı: <code>com.works.training.security.TrainingRequestFilter</code><br>Güvenlik zincirine yalnızca training profili için ekleyin.</td><td>Correlation ID veya test policy kontrolü gibi zararsız bir iş yapın; authentication/authorization kuralını yalnızca custom filter'a taşımayın.</td></tr>
+          <tr><td><a href="16-java-kriptografi.html">Secret/key externalization</a><br><strong>CryptoService var; key management entegrasyonu yok</strong></td><td>Öneri config'i: <code>CryptoTrainingConfiguration</code><br>Değer kaynağı: ortam değişkeni veya ekipçe onaylı secrets store</td><td>Gerçek key'i örnek, log, test çıktısı veya repository'ye koymayın. Rotation, erişim yetkisi ve key lifecycle'ı açıklayın.</td></tr>
+          <tr><td><a href="18-jwt-guvenligi.html">JWT validation</a><br><strong>JWT implementasyonu yok</strong></td><td>Öneri paketi: <code>com.works.training.jwt</code><br>Sınıf: <code>JwtDemoController</code><br>Önerilen API: <code>GET /training/demo/jwt/resource</code></td><td>Issuer/audience/expiry/signature/algorithm allowlist doğrulamasını test edin. Token'ı URL veya loglara koymayın; prod kimlik sağlayıcısı yerine test anahtarı kullanın.</td></tr>
+          <tr><td><a href="20-dosya-guvenligi.html">Path traversal / file permissions / temp files</a><br><strong>Dosya API'si yok</strong></td><td>Öneri paketi: <code>com.works.training.files</code><br>Sınıf: <code>SafeFileDemoController</code><br>Önerilen API: <code>GET /training/demo/files/{name}</code></td><td>Yalnızca test için ayrılmış kök dizin kullanın; canonical path'in bu kökün altında kaldığını doğrulayın. Symlink ve eşzamanlı değiştirme sınırlarını tartışın.</td></tr>
+          <tr><td><a href="21-statik-dinamik-analiz.html">SAST / SCA / DAST pipeline</a><br><strong>Scanner entegrasyonu yok</strong></td><td>Öneri: CI job'ları; demo birimi: <code>src/test</code> ve disposable local profile</td><td>SpotBugs/FindSecBugs, SonarQube, Dependency-Check ve ZAP'ı ekipçe onaylanan sürüm/politikayla ayrı adımlarda çalıştırın. ZAP hedefi yalnızca izole localhost olmalı.</td></tr>
+          <tr><td><a href="12-buffer-overflow.html">Native C++ Buffer Overflow</a><br><strong>Native C++ kaynak/build yok</strong></td><td>Öneri: Spring projesinden ayrı küçük C++ eğitim modülü; sınır testi için unit test, sanitizer build'i</td><td>Java REST endpoint'i önermeyin. Zayıf/güvenli örnek, AddressSanitizer/UBSan ile yalnızca disposable yerel test programında gösterilsin.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="native">
+      <h2>Native C++ ve araç demosu</h2>
+      <p>Workspace'te C++ kaynak kodu veya C++ build dosyası yoktur. Bu nedenle Buffer Overflow için Spring endpoint'i, mevcut sınıf ya da proje dosyası referansı verilemez. Ayrı bir eğitim target'ında güvenli sınır kontrolü, `std::array`/`std::vector`/`std::string`, sanitizer ve statik analiz gösterilebilir. C++ eşleştirmeleri için <a href="cpp-ozet-tablo.html">yazdırılabilir özet tablosuna</a> bakın.</p>
+    </section>
+    <section id="uygulama">
+      <h2>Demo eklerken güvenli sıra</h2>
+      <ol><li>Yeni dosyaları yalnızca eğitim branch'i/profili içinde oluşturun; mevcut uygulama davranışını değiştirmeyin.</li><li>Test datasını sentetik tutun; dış ağ, gerçek kimlik bilgisi, gerçek dosya ve gerçek key kullanmayın.</li><li>Önce güvenli davranışı ve beklenen testi tanımlayın; zayıf karşılaştırma gerekiyorsa ayrı fixture ve test sınırıyla tutun.</li><li>Her demo için erişim kontrolü, log redaction, kaynak/boyut/time limit ve cleanup davranışını gözden geçirin.</li><li>Öneri sınıf ve yollarını uygulamadan önce ekip paket konvansiyonu, Spring Security sürümü ve test altyapısıyla doğrulayın.</li></ol>
+    </section>
+    <nav class="pager" aria-label="Sayfa gezinme"><a href="sinav-haritasi.html">← Önceki: Sınav haritası</a><a href="cpp-ozet-tablo.html">Sonraki: C++ özet tablosu →</a></nav>
+    <footer class="site-footer">Bu katalog bir implementation kaydı değildir. Tüm yeni package/class/endpoint adları eğitmen için açıkça öneri olarak yazılmıştır.</footer>
+  </div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Java/Spring Boot ve modern C++ için güvenli yazılım geliştirme eğitim notları.">
+  <title>Java ve C++ - Güvenli Yazılım Geliştirme</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Eğitim gezinme menüsü">
+    <a class="brand" href="index.html">Java ve C++<br>Güvenli Yazılım Geliştirme</a>
+    <div class="sidebar-tools">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Koyu temaya geç</button>
+    </div>
+    <nav class="side-nav" aria-label="Dokümanlar">
+      <ul>
+        <li><a aria-current="page" href="index.html">Eğitim ana sayfası</a></li>
+        <li><a href="00-proje-tanitimi.html">Proje tanıtımı</a></li>
+        <li><a href="01-owasp-top10.html">OWASP Top 10</a></li>
+        <li><a href="02-sql-injection.html">SQL Injection</a></li>
+        <li><a href="03-xml-ldap-injection.html">XML / LDAP Injection</a></li>
+        <li><a href="04-xxe.html">XXE</a></li>
+        <li><a href="05-broken-authentication.html">Broken Authentication</a></li>
+        <li><a href="06-session-guvenligi.html">Session güvenliği</a></li>
+        <li><a href="07-https-ssl-yapilandirma.html">HTTPS / SSL</a></li>
+        <li><a href="08-authorization-bypass.html">Authorization Bypass</a></li>
+        <li><a href="09-dosya-yukleme-guvenligi.html">Dosya yükleme</a></li>
+        <li><a href="10-xss-ve-output-encoding.html">XSS / Output Encoding</a></li>
+        <li><a href="11-girdi-dogrulama.html">Girdi doğrulama</a></li>
+        <li><a href="12-buffer-overflow.html">Buffer Overflow</a></li>
+        <li><a href="13-konfigurasyon-guvenligi.html">Konfigürasyon güvenliği</a></li>
+        <li><a href="14-csrf.html">CSRF</a></li>
+        <li><a href="15-web-mvc-security.html">Web MVC Security</a></li>
+        <li><a href="16-java-kriptografi.html">Java kriptografi</a></li>
+        <li><a href="17-roller-ve-yetkilendirme.html">Roller ve yetkilendirme</a></li>
+        <li><a href="18-jwt-guvenligi.html">JWT güvenliği</a></li>
+        <li><a href="19-rest-api-guvenligi.html">REST API güvenliği</a></li>
+        <li><a href="20-dosya-guvenligi.html">Dosya güvenliği</a></li>
+        <li><a href="21-statik-dinamik-analiz.html">Statik / dinamik analiz</a></li>
+        <li><a href="22-guvenli-loglama-ve-izleme.html">Güvenli loglama</a></li>
+        <li><a href="sinav-haritasi.html">Sınav haritası</a></li>
+        <li><a href="eksik-demolar.html">Eksik demolar</a></li>
+        <li><a href="cpp-ozet-tablo.html">C++ özet tablosu</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="content">
+      <header class="page-header">
+        <p class="eyebrow">Üç günlük uygulamalı eğitim · çevrimdışı ders notları</p>
+        <h1>Java ve C++ - Güvenli Yazılım Geliştirme</h1>
+        <p>Bu dokümanlar, açık olan Spring Boot REST API projesindeki gerçek akışları inceleyerek zafiyetin nasıl oluştuğunu, etkisini ve önlem katmanını birlikte anlatır. Projede olmayan örnekler ayrıca etiketlenir; öneriler mevcut kod gibi sunulmaz.</p>
+        <div class="meta-row">
+          <span class="meta-tag">Okuma süresi: 5 dk</span>
+          <span class="meta-tag">Hedef: Java/Spring Boot + C++ geliştiricileri</span>
+        </div>
+      </header>
+
+      <section id="akış" aria-labelledby="akış-baslik">
+        <h2 id="akış-baslik">3 günlük akış önerisi</h2>
+        <p>Süreler yaklaşık ders süresidir; her gün içinde kısa ara ve proje üzerinde uygulama zamanı bırakın.</p>
+        <div class="grid">
+          <article class="schedule-card">
+            <h3>1. Gün · Girdi, kimlik ve yetki (6 saat)</h3>
+            <p>Proje mimarisi ve OWASP yönelimi (45 dk); input validation, normalization ve Injection aileleri (105 dk); authentication, session ve rol/yetki kontrolleri (120 dk); authorization bypass alıştırması (90 dk).</p>
+          </article>
+          <article class="schedule-card">
+            <h3>2. Gün · Web/API saldırı yüzeyi (6 saat)</h3>
+            <p>XSS ve output encoding (75 dk); CSRF, Servlet Filter ve Spring Security (90 dk); HTTPS/konfigürasyon ve kriptografi (105 dk); dosya yükleme ve dosya güvenliği (75 dk); REST güvenliği ve loglama (75 dk).</p>
+          </article>
+          <article class="schedule-card">
+            <h3>3. Gün · C++, doğrulama ve operasyon (6 saat)</h3>
+            <p>Buffer Overflow ve bellek güvenliği (105 dk); Java/C++ güvenli kod karşılaştırmaları (90 dk); statik/dinamik analiz araçları (90 dk); eksik demo konularının canlı eklenmesi (75 dk); tekrar, soru ve sınav haritası (60 dk).</p>
+          </article>
+        </div>
+        <aside class="warning egitmen">
+          <strong>Eğitmen Notu</strong>
+          Akış bir öneridir; proje ortamı ve grubun deneyimine göre süreleri ayarlayın. Hassas konuları yalnızca yerel ve atılabilir eğitim verisiyle gösterin.
+        </aside>
+      </section>
+
+      <section id="konular" aria-labelledby="konular-baslik">
+        <h2 id="konular-baslik">Konu başlıkları</h2>
+        <div class="search-wrap">
+          <div>
+            <label for="topic-search">Konularda ara</label>
+            <input class="search-input" id="topic-search" type="search" placeholder="Örn. CSRF, C++, parola" autocomplete="off">
+          </div>
+          <p id="no-results" role="status" hidden>Eşleşen konu bulunamadı.</p>
+        </div>
+        <div class="grid" id="topic-cards">
+          <article class="topic-card" data-topic-card><h3>00 · Proje tanıtımı</h3><p>Mimari, endpoint’ler, test verisi ve yerel demo uyarıları.</p><a href="00-proje-tanitimi.html">Proje tanıtımını aç</a></article>
+          <article class="topic-card" data-topic-card><h3>01 · OWASP Top 10</h3><p>Riskleri projedeki kod yollarıyla ilişkilendirme.</p><a href="01-owasp-top10.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>02 · SQL Injection</h3><p>Parametrik sorgu ve giriş doğrulamasının sınırları.</p><a href="02-sql-injection.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>03 · XML / LDAP Injection</h3><p>Proje karşılığı bulunmayan durumlar ve canlı demo fikri.</p><a href="03-xml-ldap-injection.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>04 · XXE</h3><p>XML parser güvenliğinin ve DOCTYPE kısıtlarının rolü.</p><a href="04-xxe.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>05 · Broken Authentication</h3><p>Basic, Form, MFA ve kaba kuvvet savunmaları.</p><a href="05-broken-authentication.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>06 · Session güvenliği</h3><p>Session Hijacking, cookie nitelikleri ve timeout.</p><a href="06-session-guvenligi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>07 · HTTPS / SSL</h3><p>Taşıma katmanı koruması ve uygulama yapılandırması.</p><a href="07-https-ssl-yapilandirma.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>08 · Authorization Bypass</h3><p>Rol sınırları, IDOR ve BOLA alıştırması.</p><a href="08-authorization-bypass.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>09 · Dosya yükleme güvenliği</h3><p>Arbitrary upload, tip kontrolü ve güvenli image işleme.</p><a href="09-dosya-yukleme-guvenligi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>10 · XSS / Output Encoding</h3><p>Girdi temizleme ile bağlama uygun çıktı kodlamasını ayırma.</p><a href="10-xss-ve-output-encoding.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>11 · Girdi doğrulama</h3><p>Whitelist, blacklist, regex ve canonicalization.</p><a href="11-girdi-dogrulama.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>12 · Buffer Overflow</h3><p>Java/native sınırları ve modern C++ bellek güvenliği.</p><a href="12-buffer-overflow.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>13 · Konfigürasyon güvenliği</h3><p>Environment, secrets, H2 console, Actuator ve SSL.</p><a href="13-konfigurasyon-guvenligi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>14 · CSRF</h3><p>Token, SameSite, Origin/Referer ve REST/JWT ayrımı.</p><a href="14-csrf.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>15 · Web MVC Security</h3><p>Servlet Filter, OncePerRequestFilter, SecurityFilterChain ve CORS.</p><a href="15-web-mvc-security.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>16 · Java kriptografi</h3><p>Hash, salt, AEAD, SecureRandom ve anahtar yönetimi.</p><a href="16-java-kriptografi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>17 · Roller ve yetkilendirme</h3><p>Basic Authentication, role-based ve method security.</p><a href="17-roller-ve-yetkilendirme.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>18 · JWT güvenliği</h3><p>İmza, doğrulama, süre ve token saklama ilkeleri.</p><a href="18-jwt-guvenligi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>19 · REST API güvenliği</h3><p>Rate limiting, DTO, hata yönetimi ve loglama.</p><a href="19-rest-api-guvenligi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>20 · Dosya güvenliği</h3><p>Path traversal, izinler ve geçici dosyalar.</p><a href="20-dosya-guvenligi.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>21 · Statik / dinamik analiz</h3><p>Java ve C++ analiz araçlarını sürece ekleme.</p><a href="21-statik-dinamik-analiz.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>22 · Güvenli loglama</h3><p>Log injection, kişisel/hassas veri ve izleme.</p><a href="22-guvenli-loglama-ve-izleme.html">Konu sayfası</a></article>
+          <article class="topic-card" data-topic-card><h3>Sınav haritası</h3><p>Ön/son test kavramlarını ilgili konuya bağlama.</p><a href="sinav-haritasi.html">Haritayı aç</a></article>
+          <article class="topic-card" data-topic-card><h3>Eksik demolar</h3><p>Projede olmayan konular için minimum ekleme önerileri.</p><a href="eksik-demolar.html">Demo önerilerini aç</a></article>
+          <article class="topic-card" data-topic-card><h3>C++ özet tablosu</h3><p>Spring/Java güvenlik ilkelerinin C++ karşılıkları.</p><a href="cpp-ozet-tablo.html">Özet tabloyu aç</a></article>
+        </div>
+      </section>
+
+      <section id="kullanim" aria-labelledby="kullanim-baslik">
+        <h2 id="kullanim-baslik">Dokümanları kullanma</h2>
+        <div class="panel">
+          <p>Her konu sayfası proje kanıtını dosya ve satır numarasıyla ayırır. Gerçek karşılığı bulunmayan başlıklarda uydurma endpoint veya sınıf verilmez; “Bu konu projede henüz yok” ve “Demo Önerisi” olarak işaretlenir.</p>
+          <p><a href="00-proje-tanitimi.html">Önce proje tanıtımına geçin</a> · <a href="sinav-haritasi.html">Sınav haritasına bakın</a></p>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Sayfa gezinme">
+        <span></span><a href="00-proje-tanitimi.html">Sonraki: Proje tanıtımı →</a>
+      </nav>
+      <footer class="site-footer">Yerel statik doküman · Harici font, CDN veya script kullanılmaz.</footer>
+    </div>
+  </main>
+</div>
+</body>
+</html>
