@@ -20,6 +20,7 @@ public class CustomerController {
 
     @PostMapping("register")
     public Customer register(@Valid @RequestBody CustomerRegisterRequestDto customerRegisterRequestDto) {
+        System.out.println("CustomerController.register: " + customerRegisterRequestDto);
         return customerService.register(customerRegisterRequestDto);
     }
 

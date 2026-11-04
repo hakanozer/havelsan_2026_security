@@ -1,0 +1,245 @@
+================================================================
+                Date      : 2026-11-04 09:52:19.942
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-5]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793775139942, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 85033EB942EB9DE8047A2CD0B7E6F227
+                
+================================================================
+                Date      : 2026-11-04 09:54:03.803
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-8]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793775243802, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 85033EB942EB9DE8047A2CD0B7E6F227
+                
+================================================================
+                Date      : 2026-11-04 10:01:04.336
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-10]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793775664335, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 85033EB942EB9DE8047A2CD0B7E6F227
+                
+================================================================
+                Date      : 2026-11-04 10:24:31.658
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777071653, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 7A18C4C755793ED174AE2AEFEF3142DE
+                
+================================================================
+                Date      : 2026-11-04 10:33:53.634
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-4]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777633634, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 7A18C4C755793ED174AE2AEFEF3142DE
+                
+================================================================
+                Date      : 2026-11-04 10:38:14.817
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777894813, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                
+================================================================
+                Date      : 2026-11-04 10:39:52.970
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-4]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777992970, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                
+================================================================
+                Date      : 2026-11-04 10:40:05.239
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-6]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793778005238, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                
+================================================================
+                Date      : 2026-11-04 10:41:05.931
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-8]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793778065931, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                
+================================================================
+                Date      : 2026-11-04 13:43:48.020
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/save, Username: ali@mail.com, Roles: ROLE_product FACTOR_PASSWORD , Time: 1793789028019, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:44:32.926
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-4]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: ali@mail.com, Roles: ROLE_product FACTOR_PASSWORD , Time: 1793789072926, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:49:42.036
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-3]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/save, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789382036, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:49:52.241
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-6]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789392241, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:50:02.885
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-9]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /note/save, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789402885, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:50:29.731
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /note/save, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789429731, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:50:39.065
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-5]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /note/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789439065, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:54:57.360
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-8]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /note/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789697360, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:59:47.003
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789987002, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:59:48.251
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-4]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789988251, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:59:50.403
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-7]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789990403, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:59:51.389
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-10]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789991389, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:59:52.336
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-3]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789992336, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 13:59:53.367
+                Level     : WARN 
+                Thread    : [http-nio-8090-exec-5]
+                Logger    : com.works.config.FilterConfig
+                Message   : Rate limit exceeded for URL: /product/list
+                
+================================================================
+                Date      : 2026-11-04 14:26:14.641
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-9]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793791574641, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:34.655
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793214655, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:37.366
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-6]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793217366, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:38.720
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-8]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793218720, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:39.784
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-10]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793219784, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:40.852
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-4]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793220852, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:41.956
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-7]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793221956, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                
+================================================================
+                Date      : 2026-11-04 14:53:43.668
+                Level     : WARN 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : com.works.config.FilterConfig
+                Message   : Rate limit exceeded for URL: /product/list
+                
+================================================================
+                Date      : 2026-11-04 14:54:15.949
+                Level     : WARN 
+                Thread    : [http-nio-8090-exec-3]
+                Logger    : com.works.config.FilterConfig
+                Message   : Rate limit exceeded for URL: /product/list
+                
+================================================================
+                Date      : 2026-11-04 14:54:17.255
+                Level     : WARN 
+                Thread    : [http-nio-8090-exec-5]
+                Logger    : com.works.config.FilterConfig
+                Message   : Rate limit exceeded for URL: /product/list
+                
+================================================================
+                Date      : 2026-11-04 14:54:18.390
+                Level     : WARN 
+                Thread    : [http-nio-8090-exec-8]
+                Logger    : com.works.config.FilterConfig
+                Message   : Rate limit exceeded for URL: /product/list
+                
+================================================================
+                Date      : 2026-11-04 15:32:01.262
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.FilterConfig
+                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793795521262, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 17C076F43AB4E30590166B69EFBF0F8E
+                

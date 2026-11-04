@@ -1,5 +1,6 @@
 package com.works.dto;
 
+import com.works.customValid.CityValid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -26,4 +27,10 @@ public class CustomerRegisterRequestDto implements Serializable {
     @NotNull
     @Size(min = 1, max = 5)
     List<RoleDto> roles;
+    /*
+    @NotNull
+    @NotEmpty
+    @CityValid
+    String city;
+     */
 }

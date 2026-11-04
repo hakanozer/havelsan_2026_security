@@ -1,5 +1,5 @@
 package com.works.config;
-
+/*
 import io.github.resilience4j.ratelimiter.RateLimiter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -69,3 +69,4 @@ public class FilterConfig implements Filter {
         filterChain.doFilter(xssReq, res);  // wrapper ile devam et
     }
 }
+ */
