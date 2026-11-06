@@ -34,6 +34,7 @@ public class CustomerService implements UserDetailsService {
     final private ModelMapper modelMapper;
     final private PasswordEncoder passwordEncoder;
     final private DriverManagerDataSource dataSource;
+    final private CryptoService cryptoService;
 
     public Customer register(CustomerRegisterRequestDto customerRegisterRequestDto) {
         Customer customer = modelMapper.map(customerRegisterRequestDto, Customer.class);
@@ -63,7 +64,23 @@ public class CustomerService implements UserDetailsService {
         return authorities;
     }
 
+    // select * from customer where email = 'adfghdfg@mail.com' and password = '' or 1 = 1 -- '
     public boolean login(CustomerLoginRequestDto req) {
+        /*
+        try {
+            String sql = "select * from customer where email = '"+req.getEmail()+"' and password = '"+req.getPassword()+"'";
+            Statement st = dataSource.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            return rs.next();
+        }catch (Exception ex) {
+            return false;
+        }
+         */
+        String encryptedEmail = cryptoService.encrypt(req.getEmail());
+        System.out.println("CustomerService.login: encryptedEmail = " + encryptedEmail);
+        String decryptedEmail = cryptoService.decrypt(encryptedEmail);
+        System.out.println("CustomerService.login: decryptedEmail = " + decryptedEmail);
+
         try {
             String sql = "select * from customer where email = ? and password = ?";
             PreparedStatement st = dataSource.getConnection().prepareStatement(sql);

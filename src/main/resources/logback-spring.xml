@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!-- Log dosyalarının tutulacağı dizin -->
     <property name="LOG_PATH" value="logs"/>
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <!-- Konsol çıktısı -->
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+    <!-- Console Appender -->
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
+
         <encoder>
             <pattern>
-                %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%thread]){magenta} %clr(%-5level) %clr(%logger{36}){cyan} - %msg%n
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
             </pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>${CONSOLE_LOG_CHARSET}</charset>
         </encoder>
     </appender>
 
-    <!-- Günlük dosya appender -->
+    <!-- Daily File Appender -->
     <appender name="DAILY_FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
 
-        <!-- Aktif dosya -->
         <file>${LOG_PATH}/application.log</file>
 
         <encoder>
@@ -36,29 +39,23 @@
         <rollingPolicy
                 class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 
-            <!-- Her gün yeni dosya -->
             <fileNamePattern>
-                ${LOG_PATH}/%d{yyyy-MM-dd}.log
+                ${LOG_PATH}/application-%d{yyyy-MM-dd}.log
             </fileNamePattern>
 
-            <!-- 30 gün sakla -->
             <maxHistory>30</maxHistory>
 
         </rollingPolicy>
 
     </appender>
 
-    <!-- Sadece FilterConfig logları -->
-    <logger name="com.works.config.FilterConfig"
-            level="INFO"
-            additivity="false">
+    <!-- Uygulama logları -->
+    <logger name="com.works" level="INFO"/>
 
-        <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="DAILY_FILE"/>
-    </logger>
-
+    <!-- Root Logger -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="DAILY_FILE"/>
     </root>
 
 </configuration>

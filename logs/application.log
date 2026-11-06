@@ -1,245 +1,1428 @@
 ================================================================
-                Date      : 2026-11-04 09:52:19.942
+                Date      : 2026-11-06 08:41:34.328
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-5]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793775139942, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 85033EB942EB9DE8047A2CD0B7E6F227
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 84165 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
                 
 ================================================================
-                Date      : 2026-11-04 09:54:03.803
+                Date      : 2026-11-06 08:41:34.330
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-8]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793775243802, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 85033EB942EB9DE8047A2CD0B7E6F227
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
                 
 ================================================================
-                Date      : 2026-11-04 10:01:04.336
+                Date      : 2026-11-06 08:41:34.344
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-10]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793775664335, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 85033EB942EB9DE8047A2CD0B7E6F227
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/demo-app] not resolvable: Not found
                 
 ================================================================
-                Date      : 2026-11-04 10:24:31.658
+                Date      : 2026-11-06 08:41:34.344
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-2]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777071653, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 7A18C4C755793ED174AE2AEFEF3142DE
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
                 
 ================================================================
-                Date      : 2026-11-04 10:33:53.634
+                Date      : 2026-11-06 08:41:34.573
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-4]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777633634, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 7A18C4C755793ED174AE2AEFEF3142DE
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
                 
 ================================================================
-                Date      : 2026-11-04 10:38:14.817
+                Date      : 2026-11-06 08:41:34.595
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.661
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.837
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.843
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.843
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.860
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 515 ms
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.895
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext
+                Message   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/DataSourceInitializationAutoConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'DBService': Injection of autowired dependencies failed
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.897
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Stopping service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.902
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.a.logging.ConditionEvaluationReportLogger
+                Message   : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+                
+================================================================
+                Date      : 2026-11-06 08:41:34.907
+                Level     : ERROR
+                Thread    : [main]
+                Logger    : org.springframework.boot.SpringApplication
+                Message   : Application run failed
+                
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/DataSourceInitializationAutoConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'DBService': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.works.MainApp.main(MainApp.java:14)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/jdbc/autoconfigure/DataSourceInitializationAutoConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'DBService': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:309)
+	... 10 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'DBService': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:499)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1444)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:229)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 20 common frames omitted
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'VAULT_DB_USERNAME' in value "${VAULT_DB_USERNAME}" <-- "${spring.datasource.username}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:296)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:129)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:96)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:286)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:257)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:184)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:959)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1679)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1658)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:764)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:748)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:493)
+	... 41 common frames omitted
+================================================================
+                Date      : 2026-11-06 08:42:15.129
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 84225 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.130
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.142
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.370
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.394
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.458
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.595
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.599
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.599
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.614
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 472 ms
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.669
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.jpa
+                Message   : HHH008540: Processing PersistenceUnitInfo [name: default]
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.690
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000001: Hibernate ORM core version 7.4.1.Final
+                
+================================================================
+                Date      : 2026-11-06 08:42:15.814
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.o.j.persistenceunit.SpringPersistenceUnitInfo
+                Message   : No LoadTimeWeaver setup: ignoring JPA class transformer
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.211
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.connections.pooling
+                Message   : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:~/havelsan_2026_security]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: HAVELSAN_2026_SECURITY/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.566
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.720
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Initialized JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.757
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.jpa.repository.query.QueryEnhancerFactories
+                Message   : Hibernate is in classpath; If applicable, HQL parser will be used.
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.850
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration
+                Message   : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.884
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer
+                Message   : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+                
+================================================================
+                Date      : 2026-11-06 08:42:16.884
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer
+                Message   : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+                
+================================================================
+                Date      : 2026-11-06 08:42:17.064
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat started on port 8090 (http) with context path '/'
+                
+================================================================
+                Date      : 2026-11-06 08:42:17.071
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Started MainApp in 2.277 seconds (process running for 2.528)
+                
+================================================================
+                Date      : 2026-11-06 09:20:27.135
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Commencing graceful shutdown. Waiting for active requests to complete
+                
+================================================================
+                Date      : 2026-11-06 09:20:27.137
+                Level     : INFO 
+                Thread    : [tomcat-shutdown]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Graceful shutdown complete
+                
+================================================================
+                Date      : 2026-11-06 09:20:27.140
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Closing JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 09:20:28.910
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 87116 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
+                
+================================================================
+                Date      : 2026-11-06 09:20:28.911
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
+                
+================================================================
+                Date      : 2026-11-06 09:20:28.924
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.141
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.166
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.232
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.374
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.378
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.378
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.393
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 468 ms
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.448
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.jpa
+                Message   : HHH008540: Processing PersistenceUnitInfo [name: default]
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.465
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000001: Hibernate ORM core version 7.4.1.Final
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.595
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.o.j.persistenceunit.SpringPersistenceUnitInfo
+                Message   : No LoadTimeWeaver setup: ignoring JPA class transformer
+                
+================================================================
+                Date      : 2026-11-06 09:20:29.811
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.connections.pooling
+                Message   : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:~/havelsan_2026_security]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: HAVELSAN_2026_SECURITY/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.158
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.287
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Initialized JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.323
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.jpa.repository.query.QueryEnhancerFactories
+                Message   : Hibernate is in classpath; If applicable, HQL parser will be used.
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.426
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration
+                Message   : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.469
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer
+                Message   : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.469
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer
+                Message   : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.669
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat started on port 8090 (http) with context path '/'
+                
+================================================================
+                Date      : 2026-11-06 09:20:30.675
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Started MainApp in 2.102 seconds (process running for 2.367)
+                
+================================================================
+                Date      : 2026-11-06 09:20:37.631
                 Level     : INFO 
                 Thread    : [http-nio-8090-exec-1]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777894813, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                Logger    : o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]
+                Message   : Initializing Spring DispatcherServlet 'dispatcherServlet'
                 
 ================================================================
-                Date      : 2026-11-04 10:39:52.970
+                Date      : 2026-11-06 09:20:37.632
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-4]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793777992970, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Initializing Servlet 'dispatcherServlet'
                 
 ================================================================
-                Date      : 2026-11-04 10:40:05.239
+                Date      : 2026-11-06 09:20:37.633
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Completed initialization in 1 ms
+                
+================================================================
+                Date      : 2026-11-06 09:20:38.134
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /customer/login | Status: 200 | Duration: 497 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
+                
+================================================================
+                Date      : 2026-11-06 09:20:57.788
                 Level     : INFO 
                 Thread    : [http-nio-8090-exec-6]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793778005238, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /customer/login | Status: 200 | Duration: 110 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
                 
 ================================================================
-                Date      : 2026-11-04 10:41:05.931
+                Date      : 2026-11-06 09:27:11.604
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-8]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /customer/register, Username: anonymousUser, Roles: ROLE_ANONYMOUS , Time: 1793778065931, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 12262A90230F0E663C342CE2504DFDAF
+                Thread    : [SpringContextShutdownHook]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Commencing graceful shutdown. Waiting for active requests to complete
                 
 ================================================================
-                Date      : 2026-11-04 13:43:48.020
+                Date      : 2026-11-06 09:27:11.607
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-2]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/save, Username: ali@mail.com, Roles: ROLE_product FACTOR_PASSWORD , Time: 1793789028019, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Thread    : [tomcat-shutdown]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Graceful shutdown complete
                 
 ================================================================
-                Date      : 2026-11-04 13:44:32.926
+                Date      : 2026-11-06 09:27:11.612
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-4]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: ali@mail.com, Roles: ROLE_product FACTOR_PASSWORD , Time: 1793789072926, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Thread    : [SpringContextShutdownHook]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Closing JPA EntityManagerFactory for persistence unit 'default'
                 
 ================================================================
-                Date      : 2026-11-04 13:49:42.036
+                Date      : 2026-11-06 09:27:13.371
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-3]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/save, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789382036, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 87648 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
                 
 ================================================================
-                Date      : 2026-11-04 13:49:52.241
+                Date      : 2026-11-06 09:27:13.372
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-6]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789392241, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
                 
 ================================================================
-                Date      : 2026-11-04 13:50:02.885
+                Date      : 2026-11-06 09:27:13.385
                 Level     : INFO 
-                Thread    : [http-nio-8090-exec-9]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /note/save, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789402885, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
                 
 ================================================================
-                Date      : 2026-11-04 13:50:29.731
+                Date      : 2026-11-06 09:27:13.617
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.636
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.695
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.866
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.871
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.871
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.886
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 500 ms
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.947
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.jpa
+                Message   : HHH008540: Processing PersistenceUnitInfo [name: default]
+                
+================================================================
+                Date      : 2026-11-06 09:27:13.964
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000001: Hibernate ORM core version 7.4.1.Final
+                
+================================================================
+                Date      : 2026-11-06 09:27:14.097
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.o.j.persistenceunit.SpringPersistenceUnitInfo
+                Message   : No LoadTimeWeaver setup: ignoring JPA class transformer
+                
+================================================================
+                Date      : 2026-11-06 09:27:14.345
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.connections.pooling
+                Message   : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:~/havelsan_2026_security]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: HAVELSAN_2026_SECURITY/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+                
+================================================================
+                Date      : 2026-11-06 09:27:14.695
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+                
+================================================================
+                Date      : 2026-11-06 09:27:14.825
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Initialized JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 09:27:14.864
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.jpa.repository.query.QueryEnhancerFactories
+                Message   : Hibernate is in classpath; If applicable, HQL parser will be used.
+                
+================================================================
+                Date      : 2026-11-06 09:27:14.970
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration
+                Message   : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+                
+================================================================
+                Date      : 2026-11-06 09:27:15.008
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer
+                Message   : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+                
+================================================================
+                Date      : 2026-11-06 09:27:15.008
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer
+                Message   : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+                
+================================================================
+                Date      : 2026-11-06 09:27:15.206
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat started on port 8090 (http) with context path '/'
+                
+================================================================
+                Date      : 2026-11-06 09:27:15.212
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Started MainApp in 2.199 seconds (process running for 2.456)
+                
+================================================================
+                Date      : 2026-11-06 09:27:27.891
                 Level     : INFO 
                 Thread    : [http-nio-8090-exec-1]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /note/save, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789429731, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Logger    : o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]
+                Message   : Initializing Spring DispatcherServlet 'dispatcherServlet'
                 
 ================================================================
-                Date      : 2026-11-04 13:50:39.065
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-5]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /note/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789439065, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:54:57.360
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-8]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /note/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789697360, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:59:47.003
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-2]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789987002, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:59:48.251
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-4]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789988251, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:59:50.403
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-7]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789990403, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:59:51.389
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-10]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789991389, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:59:52.336
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-3]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793789992336, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 13:59:53.367
-                Level     : WARN 
-                Thread    : [http-nio-8090-exec-5]
-                Logger    : com.works.config.FilterConfig
-                Message   : Rate limit exceeded for URL: /product/list
-                
-================================================================
-                Date      : 2026-11-04 14:26:14.641
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-9]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793791574641, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 14:53:34.655
+                Date      : 2026-11-06 09:27:27.892
                 Level     : INFO 
                 Thread    : [http-nio-8090-exec-1]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793214655, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Initializing Servlet 'dispatcherServlet'
                 
 ================================================================
-                Date      : 2026-11-04 14:53:37.366
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-6]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793217366, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 14:53:38.720
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-8]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793218720, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 14:53:39.784
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-10]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793219784, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 14:53:40.852
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-4]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793220852, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 14:53:41.956
-                Level     : INFO 
-                Thread    : [http-nio-8090-exec-7]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793793221956, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 185886E0B8A48D71EE219FEC91941C3E
-                
-================================================================
-                Date      : 2026-11-04 14:53:43.668
-                Level     : WARN 
-                Thread    : [http-nio-8090-exec-2]
-                Logger    : com.works.config.FilterConfig
-                Message   : Rate limit exceeded for URL: /product/list
-                
-================================================================
-                Date      : 2026-11-04 14:54:15.949
-                Level     : WARN 
-                Thread    : [http-nio-8090-exec-3]
-                Logger    : com.works.config.FilterConfig
-                Message   : Rate limit exceeded for URL: /product/list
-                
-================================================================
-                Date      : 2026-11-04 14:54:17.255
-                Level     : WARN 
-                Thread    : [http-nio-8090-exec-5]
-                Logger    : com.works.config.FilterConfig
-                Message   : Rate limit exceeded for URL: /product/list
-                
-================================================================
-                Date      : 2026-11-04 14:54:18.390
-                Level     : WARN 
-                Thread    : [http-nio-8090-exec-8]
-                Logger    : com.works.config.FilterConfig
-                Message   : Rate limit exceeded for URL: /product/list
-                
-================================================================
-                Date      : 2026-11-04 15:32:01.262
+                Date      : 2026-11-06 09:27:27.893
                 Level     : INFO 
                 Thread    : [http-nio-8090-exec-1]
-                Logger    : com.works.config.FilterConfig
-                Message   : URL: /product/list, Username: zehra@mail.com, Roles: ROLE_note ROLE_product FACTOR_PASSWORD , Time: 1793795521262, Agent: PostmanRuntime/7.56.1, IP: 0:0:0:0:0:0:0:1, SessionId: 17C076F43AB4E30590166B69EFBF0F8E
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Completed initialization in 1 ms
+                
+================================================================
+                Date      : 2026-11-06 09:27:28.412
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /customer/login | Status: 200 | Duration: 514 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
+                
+================================================================
+                Date      : 2026-11-06 09:27:43.045
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-5]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /customer/login | Status: 200 | Duration: 105 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
+                
+================================================================
+                Date      : 2026-11-06 09:33:38.374
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Commencing graceful shutdown. Waiting for active requests to complete
+                
+================================================================
+                Date      : 2026-11-06 09:33:38.378
+                Level     : INFO 
+                Thread    : [tomcat-shutdown]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Graceful shutdown complete
+                
+================================================================
+                Date      : 2026-11-06 09:33:38.380
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Closing JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 09:33:39.615
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 88163 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
+                
+================================================================
+                Date      : 2026-11-06 09:33:39.616
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
+                
+================================================================
+                Date      : 2026-11-06 09:33:39.629
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
+                
+================================================================
+                Date      : 2026-11-06 09:33:39.851
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+                
+================================================================
+                Date      : 2026-11-06 09:33:39.871
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 09:33:39.939
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.090
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.096
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.096
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.111
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 481 ms
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.167
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.jpa
+                Message   : HHH008540: Processing PersistenceUnitInfo [name: default]
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.183
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000001: Hibernate ORM core version 7.4.1.Final
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.306
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.o.j.persistenceunit.SpringPersistenceUnitInfo
+                Message   : No LoadTimeWeaver setup: ignoring JPA class transformer
+                
+================================================================
+                Date      : 2026-11-06 09:33:40.663
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.connections.pooling
+                Message   : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:~/havelsan_2026_security]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: HAVELSAN_2026_SECURITY/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.010
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.143
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Initialized JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.180
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.jpa.repository.query.QueryEnhancerFactories
+                Message   : Hibernate is in classpath; If applicable, HQL parser will be used.
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.278
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration
+                Message   : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.314
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer
+                Message   : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.314
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer
+                Message   : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.497
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat started on port 8090 (http) with context path '/'
+                
+================================================================
+                Date      : 2026-11-06 09:33:41.503
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Started MainApp in 2.241 seconds (process running for 2.502)
+                
+================================================================
+                Date      : 2026-11-06 09:33:50.472
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]
+                Message   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+                
+================================================================
+                Date      : 2026-11-06 09:33:50.472
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Initializing Servlet 'dispatcherServlet'
+                
+================================================================
+                Date      : 2026-11-06 09:33:50.473
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Completed initialization in 1 ms
+                
+================================================================
+                Date      : 2026-11-06 09:33:50.979
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /customer/login | Status: 200 | Duration: 502 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
+                
+================================================================
+                Date      : 2026-11-06 10:01:16.335
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Commencing graceful shutdown. Waiting for active requests to complete
+                
+================================================================
+                Date      : 2026-11-06 10:01:16.338
+                Level     : INFO 
+                Thread    : [tomcat-shutdown]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Graceful shutdown complete
+                
+================================================================
+                Date      : 2026-11-06 10:01:16.342
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Closing JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 11:26:48.516
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 96498 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
+                
+================================================================
+                Date      : 2026-11-06 11:26:48.517
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
+                
+================================================================
+                Date      : 2026-11-06 11:26:48.534
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
+                
+================================================================
+                Date      : 2026-11-06 11:26:48.850
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+                
+================================================================
+                Date      : 2026-11-06 11:26:48.879
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 11:26:48.970
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.167
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.173
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.173
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.193
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 658 ms
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.272
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.jpa
+                Message   : HHH008540: Processing PersistenceUnitInfo [name: default]
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.302
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000001: Hibernate ORM core version 7.4.1.Final
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.489
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.o.j.persistenceunit.SpringPersistenceUnitInfo
+                Message   : No LoadTimeWeaver setup: ignoring JPA class transformer
+                
+================================================================
+                Date      : 2026-11-06 11:26:49.816
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.connections.pooling
+                Message   : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:~/havelsan_2026_security]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: HAVELSAN_2026_SECURITY/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.302
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.436
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Initialized JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.485
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.jpa.repository.query.QueryEnhancerFactories
+                Message   : Hibernate is in classpath; If applicable, HQL parser will be used.
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.623
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration
+                Message   : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.672
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer
+                Message   : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.673
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer
+                Message   : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.940
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat started on port 8090 (http) with context path '/'
+                
+================================================================
+                Date      : 2026-11-06 11:26:50.948
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Started MainApp in 2.93 seconds (process running for 3.354)
+                
+================================================================
+                Date      : 2026-11-06 11:32:55.219
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]
+                Message   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+                
+================================================================
+                Date      : 2026-11-06 11:32:55.220
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Initializing Servlet 'dispatcherServlet'
+                
+================================================================
+                Date      : 2026-11-06 11:32:55.221
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Completed initialization in 1 ms
+                
+================================================================
+                Date      : 2026-11-06 11:32:55.970
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-1]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /product/save | Status: 200 | Duration: 744 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
+                
+================================================================
+                Date      : 2026-11-06 11:34:56.383
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Commencing graceful shutdown. Waiting for active requests to complete
+                
+================================================================
+                Date      : 2026-11-06 11:34:56.385
+                Level     : INFO 
+                Thread    : [tomcat-shutdown]
+                Logger    : org.springframework.boot.tomcat.GracefulShutdown
+                Message   : Graceful shutdown complete
+                
+================================================================
+                Date      : 2026-11-06 11:34:56.388
+                Level     : INFO 
+                Thread    : [SpringContextShutdownHook]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Closing JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 11:34:58.586
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Starting MainApp using Java 26.0.1 with PID 97142 (/Users/hakan/Documents/GitHub/havelsan_2026_security/target/classes started by hakan in /Users/hakan/Documents/GitHub/havelsan_2026_security)
+                
+================================================================
+                Date      : 2026-11-06 11:34:58.587
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : No active profile set, falling back to 1 default profile: "default"
+                
+================================================================
+                Date      : 2026-11-06 11:34:58.607
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.vault.core.env.LeaseAwareVaultPropertySource
+                Message   : Vault location [secret/application] not resolvable: Not found
+                
+================================================================
+                Date      : 2026-11-06 11:34:58.918
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+                
+================================================================
+                Date      : 2026-11-06 11:34:58.947
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.r.config.RepositoryConfigurationDelegate
+                Message   : Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.039
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.springframework.cloud.context.scope.GenericScope
+                Message   : BeanFactory id=0a6c37a4-4f87-375c-91f1-6dc59ae20504
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.238
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat initialized with port 8090 (http)
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.245
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardService
+                Message   : Starting service [Tomcat]
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.245
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.apache.catalina.core.StandardEngine
+                Message   : Starting Servlet engine: [Apache Tomcat/11.0.22]
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.264
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.b.w.c.servlet.WebApplicationContextInitializer
+                Message   : Root WebApplicationContext: initialization completed in 657 ms
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.341
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.jpa
+                Message   : HHH008540: Processing PersistenceUnitInfo [name: default]
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.363
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000001: Hibernate ORM core version 7.4.1.Final
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.538
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.o.j.persistenceunit.SpringPersistenceUnitInfo
+                Message   : No LoadTimeWeaver setup: ignoring JPA class transformer
+                
+================================================================
+                Date      : 2026-11-06 11:34:59.938
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.connections.pooling
+                Message   : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:~/havelsan_2026_security]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: HAVELSAN_2026_SECURITY/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+                
+================================================================
+                Date      : 2026-11-06 11:35:00.384
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.hibernate.orm.core
+                Message   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+                
+================================================================
+                Date      : 2026-11-06 11:35:00.522
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.orm.jpa.LocalContainerEntityManagerFactoryBean
+                Message   : Initialized JPA EntityManagerFactory for persistence unit 'default'
+                
+================================================================
+                Date      : 2026-11-06 11:35:00.563
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.d.jpa.repository.query.QueryEnhancerFactories
+                Message   : Hibernate is in classpath; If applicable, HQL parser will be used.
+                
+================================================================
+                Date      : 2026-11-06 11:35:00.691
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration
+                Message   : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+                
+================================================================
+                Date      : 2026-11-06 11:35:00.745
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer
+                Message   : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+                
+================================================================
+                Date      : 2026-11-06 11:35:00.745
+                Level     : WARN 
+                Thread    : [main]
+                Logger    : o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer
+                Message   : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+                
+================================================================
+                Date      : 2026-11-06 11:35:01.010
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : org.springframework.boot.tomcat.TomcatWebServer
+                Message   : Tomcat started on port 8090 (http) with context path '/'
+                
+================================================================
+                Date      : 2026-11-06 11:35:01.018
+                Level     : INFO 
+                Thread    : [main]
+                Logger    : com.works.MainApp
+                Message   : Started MainApp in 2.921 seconds (process running for 3.268)
+                
+================================================================
+                Date      : 2026-11-06 11:35:13.259
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]
+                Message   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+                
+================================================================
+                Date      : 2026-11-06 11:35:13.260
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Initializing Servlet 'dispatcherServlet'
+                
+================================================================
+                Date      : 2026-11-06 11:35:13.261
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : org.springframework.web.servlet.DispatcherServlet
+                Message   : Completed initialization in 1 ms
+                
+================================================================
+                Date      : 2026-11-06 11:35:13.999
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-2]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: POST | URI: /product/save | Status: 200 | Duration: 734 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
+                
+================================================================
+                Date      : 2026-11-06 11:36:39.090
+                Level     : INFO 
+                Thread    : [http-nio-8090-exec-5]
+                Logger    : com.works.config.LogFilter
+                Message   : HTTP REQUEST | User: ali@mail.com | Method: GET | URI: /product/list | Status: 200 | Duration: 378 ms | IP: 0:0:0:0:0:0:0:1 | SessionID: No Session | Roles: ROLE_product, FACTOR_PASSWORD | Agent: PostmanRuntime/7.56.1
                 

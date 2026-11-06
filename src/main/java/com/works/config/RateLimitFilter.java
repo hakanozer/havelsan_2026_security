@@ -42,6 +42,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
 
+
         boolean authenticated = authentication != null
                 && authentication.isAuthenticated()
                 && !"anonymousUser".equals(authentication.getPrincipal());
@@ -57,7 +58,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
             limit = 7;
         } else if (!authenticated) {
             bucket = "anonymous";
-            limit = 3;
+            limit = 13;
         } else {
             filterChain.doFilter(request, response);
             return;

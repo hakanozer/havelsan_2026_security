@@ -12,7 +12,10 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.session.DisableEncodeUrlFilter;
 
 @Configuration
 @RequiredArgsConstructor
@@ -32,6 +35,8 @@ public class SecurityConfig {
                         .requestMatchers("/customer/**").permitAll()
                         .anyRequest().permitAll()
                 )
+                .addFilterBefore(new LogFilter(), DisableEncodeUrlFilter.class)   // zincirin en başı
+                .addFilterAfter(new AuthCaptureFilter(), AnonymousAuthenticationFilter.class)
                 .addFilterAfter(
                         new RateLimitFilter(rateLimiterRegistry),
                         UsernamePasswordAuthenticationFilter.class
